@@ -38,7 +38,7 @@ const createTables = async () => {
             title varchar(255) UNIQUE NOT NULL,
             cookingTime INTEGER NOT NULL,
             is_vegetarian BOOLEAN,
-            description varchar(255) NOT NULL,
+            description BYTEA NOT NULL,
             video varchar(255),
             userId INTEGER REFERENCES users(users_id)
         );
