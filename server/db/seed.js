@@ -5,6 +5,8 @@ const { createUser } = require('./helpers/users');
 const { createRecipe } = require('./helpers/recipes');
 const { createIngredient } = require('./helpers/ingredients');
 const { createRecipesIngredient } = require('./helpers/recipes_ingredients');
+const { createUsersIngredient } = require('./helpers/users_ingredients');
+
 const { recipes, users, ingredients, recipesIngredients, usersIngredients} = require('./seedData');
 
 const dropTables = async() => {
@@ -117,13 +119,14 @@ const createInitialRecipesIngredients = async() => {
 // Create users_ingredients
 const createInitialUsersIngredients = async() => {
     try {
-        for (const usersIngredient of usersIngredeients) {
-            // await a function i havent written yet
+        for (const usersIngredient of usersIngredients) {
+            await createUsersIngredient(usersIngredient);
         }
     } catch (error) {
         throw error;
     }
-    console.log("created users ingredients table");
+    console.log("created usersIngredients table");
+    console.log(usersIngredients);
 }
 
 // Call my functions and build my database
@@ -143,6 +146,7 @@ const rebuildDb = async () => {
         await createInitialRecipes();
         await createInitialIngredients();
         await createInitialRecipesIngredients();
+        await createInitialUsersIngredients();
 
     } catch (error) {
         console.error(error);

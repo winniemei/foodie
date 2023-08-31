@@ -28,8 +28,8 @@ const recipesIngredients = [
 ]
 
 const usersIngredients = [
-    { userId: 1, ingredientsId: 1 },
-    { userId: 2, ingredientsId: 2 }
+    { usersId: 1, ingredientsId: 1 },
+    { usersId: 2, ingredientsId: 2 }
 ]
 
 module.exports = { recipes, users, ingredients, recipesIngredients, usersIngredients }
