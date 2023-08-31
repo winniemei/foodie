@@ -2,8 +2,8 @@
 
 // Recipes
 const recipes = [
-    { title: "Scrambled eggs", cookingTime: 15, likes: 5, is_vegetarian: true, description: "you scramble some eggs", video: 'https://www.youtube.com/shorts/sdk0CEfTaIw', comments: "yum"},
-    { title: "Salmon avocado bowl", cookingTime: 20, likes: 35, is_vegetarian: true, description: "you put some avo and salmon together", video: 'https://www.youtube.com/shorts/sdk0CEfTaIw', comments: "more yum"}
+    { title: "Scrambled eggs", cookingTime: 15, likes: 5, is_vegetarian: true, description: "you scramble some eggs", video: 'https://www.youtube.com/shorts/sdk0CEfTaIw', comments: "yum", userId: 1},
+    { title: "Salmon avocado bowl", cookingTime: 20, likes: 35, is_vegetarian: true, description: "you put some avo and salmon together", video: 'https://www.youtube.com/shorts/sdk0CEfTaIw', comments: "more yum", userId: 2}
 ]
 
 // User
@@ -19,3 +19,5 @@ const ingredients = [
     { name: 'eggs', type: 'protein', image: 'salmonImage'}, 
     { name: 'salmon', type: 'fish', image: 'salmonImage'}
 ]
+
+module.exports = { recipes, users, ingredients }
