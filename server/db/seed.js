@@ -101,6 +101,7 @@ const createInitialIngredients = async() => {
         throw error;
     }
     console.log("created ingredients");
+    console.log(ingredients);
 }
 
 // Create recipes_ingredients

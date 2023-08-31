@@ -29,6 +29,7 @@ const recipesIngredients = [
 
 const usersIngredients = [
     { usersId: 1, ingredientsId: 1 },
+    { usersId: 1, ingredientsId: 2 },
     { usersId: 2, ingredientsId: 2 }
 ]
 
