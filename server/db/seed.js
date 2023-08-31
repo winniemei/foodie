@@ -46,7 +46,7 @@ const createTables = async () => {
             ingredients_id SERIAL PRIMARY KEY,
             name varchar(255) UNIQUE NOT NULL,
             type varchar(255),
-            image varchar(255)
+            image BYTEA
         );
         CREATE TABLE recipesIngredients (
             recipes_ingredients_id SERIAL PRIMARY KEY,
