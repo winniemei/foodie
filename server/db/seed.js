@@ -4,17 +4,18 @@ const client = require('./client');
 const { createUser } = require('./helpers/users');
 const { createRecipe } = require('./helpers/recipes');
 const { createIngredient } = require('./helpers/ingredients');
-const { recipes, users, ingredients, recipes_ingredients, users_ingredients} = require('./seedData');
+const { createRecipesIngredient } = require('./helpers/recipes_ingredients');
+const { recipes, users, ingredients, recipesIngredients, usersIngredients} = require('./seedData');
 
 const dropTables = async() => {
     try {
         console.log("Starting to drop tables");
         await client.query(`
-        DROP TABLE IF EXISTS recipes;
-        DROP TABLE IF EXISTS users;
-        DROP TABLE IF EXISTS ingredients;
-        DROP TABLE IF EXISTS recipes_ingredients;
-        DROP TABLE IF EXISTS users_ingredients;
+        DROP TABLE IF EXISTS recipes cascade;
+        DROP TABLE IF EXISTS users cascade;
+        DROP TABLE IF EXISTS ingredients cascade;
+        DROP TABLE IF EXISTS recipesIngredients cascade;
+        DROP TABLE IF EXISTS usersIngredients cascade;
         `)
     } catch (error) {
         console.log("Error dropping tables");
@@ -44,6 +45,16 @@ const createTables = async () => {
             name varchar(255) UNIQUE NOT NULL,
             type varchar(255),
             image varchar(255)
+        );
+        CREATE TABLE recipesIngredients (
+            recipes_ingredients_id SERIAL PRIMARY KEY,
+            recipesId INTEGER REFERENCES recipes(recipes_id) NOT NULL,
+            ingredientsId INTEGER REFERENCES ingredients(ingredients_id) NOT NULL
+        );
+        CREATE TABLE usersIngredients (
+            users_ingredients_id SERIAL PRIMARY KEY,
+            usersId INTEGER REFERENCES users(users_id) NOT NULL,
+            ingredientsId INTEGER REFERENCES ingredients(ingredients_id) NOT NULL
         );
         `)
         console.log('Tables built!');
@@ -84,11 +95,35 @@ const createInitialIngredients = async() => {
         for (const ingredient of ingredients) {
             await createIngredient(ingredient);
         }
-        console.log("created ingredient")
     } catch (error) {
         throw error;
     }
     console.log("created ingredients");
+}
+
+// Create recipes_ingredients
+const createInitialRecipesIngredients = async() => {
+    try {
+        for (const recipesIngredient of recipesIngredients) {
+            await createRecipesIngredient(recipesIngredient);
+        }
+    } catch (error) {
+        throw error;
+    }
+    console.log("created recipesIngredients table");
+    console.log(recipesIngredients);
+}
+
+// Create users_ingredients
+const createInitialUsersIngredients = async() => {
+    try {
+        for (const usersIngredient of usersIngredeients) {
+            // await a function i havent written yet
+        }
+    } catch (error) {
+        throw error;
+    }
+    console.log("created users ingredients table");
 }
 
 // Call my functions and build my database
@@ -107,6 +142,7 @@ const rebuildDb = async () => {
         await createInitialUsers();
         await createInitialRecipes();
         await createInitialIngredients();
+        await createInitialRecipesIngredients();
 
     } catch (error) {
         console.error(error);

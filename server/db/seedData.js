@@ -21,14 +21,15 @@ const ingredients = [
 ]
 
 
-const recipes_ingredients = [
+const recipesIngredients = [
     { recipesId: 1, ingredientsId: 1},
+    { recipesId: 1, ingredientsId: 2},
     { recipesId: 2, ingredientsId: 2}
 ]
 
-const users_ingredients = [
+const usersIngredients = [
     { userId: 1, ingredientsId: 1 },
     { userId: 2, ingredientsId: 2 }
 ]
 
-module.exports = { recipes, users, ingredients, recipes_ingredients, users_ingredients }
+module.exports = { recipes, users, ingredients, recipesIngredients, usersIngredients }
