@@ -21,23 +21,23 @@ const createUser = async({ username, password }) => {
 // GET - /api/users - get all users
 async function getAllUsers() {
     try {
-        const { users } = await client.query(`
+        const { rows } = await client.query(`
         SELECT * FROM users;
         `)
-        return users;
+        return rows;
     } catch(error) {
         throw error;
     }
 }
 
 // GET - /api/users/:id - get user by id
-async function getUserById({id}) {
+async function getUserById(id) {
     try {
-      const { rows } = await client.query(`
+      const { rows: [user] } = await client.query(`
         SELECT * FROM users
-        WHERE "users_id" = ${id}
-      `);
-      return rows;
+        WHERE users_id = $1
+      `, [id]) ;
+      return user;
     } catch (error) {
       throw error;
     }
