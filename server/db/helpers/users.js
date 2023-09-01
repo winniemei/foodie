@@ -18,4 +18,14 @@ const createUser = async({ username, password }) => {
     }
 }
 
-module.exports = { createUser }
+// GET - /api/users - get all users
+async function getAllUsers() {
+    try {
+        const rows = data.users;
+        return rows;
+    } catch(error) {
+        throw error;
+    }
+}
+
+module.exports = { createUser, getAllUsers }

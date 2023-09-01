@@ -18,4 +18,6 @@ const createRecipe = async({ title, portions, cookingTime, is_vegetarian, descri
     }
 }
 
+// GET - /api/
+
 module.exports = { createRecipe }
