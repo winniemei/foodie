@@ -21,9 +21,10 @@ const createUser = async({ username, password }) => {
 // GET - /api/users - get all users
 async function getAllUsers() {
     try {
-        const { rows } = await client.query(`
-        SELECT * FROM users;`)
-        return rows;
+        const { users } = await client.query(`
+        SELECT * FROM users;
+        `)
+        return users;
     } catch(error) {
         throw error;
     }
@@ -44,4 +45,4 @@ async function getUserById({id}) {
 
 
 
-module.exports = { createUser, getAllUsers }
+module.exports = { createUser, getAllUsers, getUserById }
