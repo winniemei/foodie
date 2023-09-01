@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllUsers, getUserById, updateUser } = require('../db/helpers/users')
+const { getAllUsers, getUserById, updateUser, addUser } = require('../db/helpers/users')
 
 // GET - /api/users - get all users
 router.get('/', async (req, res, next) => {
@@ -36,24 +36,15 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-// POST - /api/cats - create a new cat
+// POST - /api/users - create a new user
 router.post('/', async (req, res, next) => {
     try {
-        const newUser = await updateUser(user);
-        if (newUser) {
-            res.send(newUser);
-        } else {
-            next({
-                name: 'CreateUserError',
-                message: 'There was an error creating the user'
-            });
-        }
+        const newUser = await addUser(req.body);
+        res.send(newUser);
     }
     catch (error) {
     next(error);
 }
 });
-
-
 
 module.exports = router;

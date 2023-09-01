@@ -44,7 +44,7 @@ async function getUserById(id) {
 }
 
 // POST - /api/users - create a new user
-async function updateUser({username, password}) {
+async function addUser({username, password}) {
   try {
     const {rows: [user]} = await client.query(`
         INSERT INTO users ("username", "password")
@@ -56,7 +56,6 @@ async function updateUser({username, password}) {
     throw error;
   }
 }
-
 
 
 // PUT - /api/users/:id - update a user
@@ -77,4 +76,4 @@ async function updateUser(id, body) {
   }
 }
 
-module.exports = { createUser, getAllUsers, getUserById, updateUser }
+module.exports = { createUser, getAllUsers, getUserById, updateUser, addUser }
