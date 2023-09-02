@@ -12,14 +12,14 @@ router.get('/', async (req, res, next) => {
     catch (error) {
         next(error);
     }
-})
+});
 
 // GET - /api/users/:userId - get user by id
 router.get('/:id', async (req, res, next) => {
     try {
         console.log('getting userById...')
-        const rows = await getUserById(req.params.id);
-        res.send(rows);
+        const user = await getUserById(req.params.id);
+        res.send(user);
     } catch (error) {
         next(error);
     }

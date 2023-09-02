@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllRecipes } = require('../db/helpers/recipes');
+const { getAllRecipes, getRecipeById } = require('../db/helpers/recipes');
 
 // GET - /api/recipes - get all recipes
 router.get('/', async(req, res, next) => {
@@ -12,6 +12,19 @@ router.get('/', async(req, res, next) => {
     } catch (error) {
         next(error);
     }
-})
+});
+
+// GET - /api/recipes/:id - get recipe by id
+router.get('/:id', async(req, res, next) => {
+    try {
+        console.log("getting recipe by id...")
+        const recipe = await getRecipeById(req.params.id);
+        res.send(recipe);
+    } catch (error) {
+        next(error);
+    }
+});
+
+
 
 module.exports = router;

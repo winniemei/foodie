@@ -30,4 +30,20 @@ async function getAllRecipes() {
     }
 }
 
-module.exports = { createRecipe, getAllRecipes }
+
+// GET - /api/recipes/:id - get recipe by id
+async function getRecipeById(id) {
+    try {
+        const { rows: [recipe] } = await client.query(`
+        SELECT * FROM recipes
+        WHERE recipes_id = ${id}`
+        );
+        return recipe;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
+module.exports = { createRecipe, getAllRecipes, getRecipeById }
