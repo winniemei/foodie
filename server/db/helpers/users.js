@@ -57,14 +57,14 @@ async function addUser({username, password}) {
   }
 }
 
-
 // PUT - /api/users/:id - update a user
 async function updateUser(id, body) {
   try {
     const { rows } = await client.query(
     `
     UPDATE users
-    SET username = '${body.username}', password = '${body.password}' WHERE users_id = ${id}
+    SET username = '${body.username}', password = '${body.password}' 
+    WHERE users_id = ${id}
     RETURNING *;
     `
     );
@@ -76,4 +76,22 @@ async function updateUser(id, body) {
   }
 }
 
-module.exports = { createUser, getAllUsers, getUserById, updateUser, addUser }
+// DELETE - /api/users/:id - delete a user
+async function deleteUser(id) {
+  try {
+    console.log('entering delete..')
+    const { rows } = await client.query(
+    `
+    DELETE FROM users
+    WHERE users_id = ${id}
+    `
+    );
+    console.log("deleted user", rows);
+    return rows;
+    }
+     catch (error) {
+      throw error;
+  }
+}
+
+module.exports = { createUser, getAllUsers, getUserById, updateUser, addUser, deleteUser }

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllUsers, getUserById, updateUser, addUser } = require('../db/helpers/users')
+const { getAllUsers, getUserById, updateUser, addUser, deleteUser } = require('../db/helpers/users')
 
 // GET - /api/users - get all users
 router.get('/', async (req, res, next) => {
@@ -25,6 +25,18 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+// POST - /api/users - create a new user
+router.post('/', async (req, res, next) => {
+    try {
+        const newUser = await addUser(req.body);
+        console.log(req.body)
+        res.send(newUser);
+    }
+    catch (error) {
+    next(error);
+}
+});
+
 // PUT - /api/users - update a new user
 
 router.put('/:id', async (req, res, next) => {
@@ -36,15 +48,15 @@ router.put('/:id', async (req, res, next) => {
     }
 });
 
-// POST - /api/users - create a new user
-router.post('/', async (req, res, next) => {
+// DELETE - /api/users - delete a user
+
+router.delete('/:id', async (req, res, next) => {
     try {
-        const newUser = await addUser(req.body);
-        res.send(newUser);
+        const user = await deleteUser(req.params.id);
+        res.send(user);
+    } catch (error) {
+        next(error);
     }
-    catch (error) {
-    next(error);
-}
 });
 
 module.exports = router;
