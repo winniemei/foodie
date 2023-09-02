@@ -35,8 +35,8 @@ async function getUserById(id) {
   try {
     const { rows: [user] } = await client.query(`
         SELECT * FROM users
-        WHERE users_id = $1
-      `, [id]);
+        WHERE users_id = ${id}
+      `);
     return user;
   } catch (error) {
     throw error;

@@ -38,7 +38,6 @@ router.post('/', async (req, res, next) => {
 });
 
 // PUT - /api/users - update a new user
-
 router.put('/:id', async (req, res, next) => {
     try {
         const user = await updateUser(req.params.id, req.body);
@@ -49,7 +48,6 @@ router.put('/:id', async (req, res, next) => {
 });
 
 // DELETE - /api/users - delete a user
-
 router.delete('/:id', async (req, res, next) => {
     try {
         const user = await deleteUser(req.params.id);
