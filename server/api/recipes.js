@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllRecipes, getRecipeById, addRecipe, updateRecipe } = require('../db/helpers/recipes');
+const { getAllRecipes, getRecipeById, addRecipe, updateRecipe, deleteRecipe } = require('../db/helpers/recipes');
 
 // GET - /api/recipes - get all recipes
 router.get('/', async(req, res, next) => {
@@ -41,6 +41,16 @@ router.post('/', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
     try {
         const recipe = await updateRecipe(req.params.id, req.body);
+        res.send(recipe);
+    } catch (error) {
+        next(error);
+    }
+});
+
+// DELETE - /api/recipes - delete a recipe
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const recipe = await deleteRecipe(req.params.id);
         res.send(recipe);
     } catch (error) {
         next(error);
