@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllRecipes, getRecipeById } = require('../db/helpers/recipes');
+const { getAllRecipes, getRecipeById, addRecipe } = require('../db/helpers/recipes');
 
 // GET - /api/recipes - get all recipes
 router.get('/', async(req, res, next) => {
@@ -25,6 +25,16 @@ router.get('/:id', async(req, res, next) => {
     }
 });
 
-
+// POST - /api/recipes - create a new recipe
+router.post('/', async (req, res, next) => {
+    try {
+        const newRecipe = await addRecipe(req.body);
+        console.log(req.body)
+        res.send(newRecipe);
+    }
+    catch (error) {
+        next(error);
+    }
+});
 
 module.exports = router;
