@@ -61,7 +61,7 @@ async function addRecipe({ title, portions, cookingTime, is_vegetarian, descript
     }
 }
 
-// PUT - /api/users/:id - update a user
+// PUT - /api/recipes/:id - update a recipe
 async function updateRecipe(id, body) {
     try {
         const { rows: [recipe] } = await client.query(

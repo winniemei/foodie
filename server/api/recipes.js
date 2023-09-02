@@ -37,7 +37,7 @@ router.post('/', async (req, res, next) => {
     }
 });
 
-// PUT - /api/recipes - update a new user
+// PUT - /api/recipes - update a new recipe
 router.put('/:id', async (req, res, next) => {
     try {
         const recipe = await updateRecipe(req.params.id, req.body);
