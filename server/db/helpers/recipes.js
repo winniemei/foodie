@@ -18,6 +18,16 @@ const createRecipe = async({ title, portions, cookingTime, is_vegetarian, descri
     }
 }
 
-// GET - /api/
+// GET - /api/recipes - get all recipes
+async function getAllRecipes() {
+    try {
+        const { rows } = await client.query(`
+        SELECT * FROM recipes;
+        `)
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
 
-module.exports = { createRecipe }
+module.exports = { createRecipe, getAllRecipes }

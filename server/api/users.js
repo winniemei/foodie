@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllUsers, getUserById, updateUser, addUser, deleteUser } = require('../db/helpers/users')
+const { getAllUsers, getUserById, updateUser, addUser, deleteUser } = require('../db/helpers/users');
 
 // GET - /api/users - get all users
 router.get('/', async (req, res, next) => {
@@ -33,8 +33,8 @@ router.post('/', async (req, res, next) => {
         res.send(newUser);
     }
     catch (error) {
-    next(error);
-}
+        next(error);
+    }
 });
 
 // PUT - /api/users - update a new user

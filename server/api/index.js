@@ -9,7 +9,7 @@ router.get('/health', (req, res, next) => {
 router.use('/users', require('./users'));
 
 // ROUTER: /api/recipes
-// router.use('/recipes', require('./recipes'));
+router.use('/recipes', require('./recipes'));
 
 // ROUTER: /api/ingredients
 // router.use('/ingredients', require('./ingredients'));
