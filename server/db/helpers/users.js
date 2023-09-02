@@ -37,6 +37,7 @@ async function getUserById(id) {
         SELECT * FROM users
         WHERE users_id = ${id}
       `);
+    console.log(user)
     return user;
   } catch (error) {
     throw error;
@@ -60,7 +61,7 @@ async function addUser({username, password}) {
 // PUT - /api/users/:id - update a user
 async function updateUser(id, body) {
   try {
-    const { rows } = await client.query(
+    const { rows: [user] } = await client.query(
     `
     UPDATE users
     SET username = '${body.username}', password = '${body.password}' 
@@ -68,8 +69,8 @@ async function updateUser(id, body) {
     RETURNING *;
     `
     );
-    console.log("updated user", rows);
-    return rows;
+    console.log("updated user", user);
+    return user;
     }
      catch (error) {
       throw error;
@@ -80,14 +81,14 @@ async function updateUser(id, body) {
 async function deleteUser(id) {
   try {
     console.log('entering delete..')
-    const { rows } = await client.query(
+    const { rows: [user] } = await client.query(
     `
     DELETE FROM users
     WHERE users_id = ${id}
     `
     );
-    console.log("deleted user", rows);
-    return rows;
+    console.log("deleted user", user);
+    return user;
     }
      catch (error) {
       throw error;
