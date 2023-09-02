@@ -18,4 +18,16 @@ const createRecipesIngredient = async({ recipesId, ingredientsId }) => {
     }
 }
 
-module.exports = { createRecipesIngredient }
+// GET - /api/recipes_ingredients - get all recipes_ingredients
+async function getAllRecipesIngredients() {
+    try {
+        const { rows } = await client.query(`
+        SELECT * FROM recipesIngredients;
+        `)
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { createRecipesIngredient, getAllRecipesIngredients }

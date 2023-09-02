@@ -14,4 +14,7 @@ router.use('/recipes', require('./recipes'));
 // ROUTER: /api/ingredients
 router.use('/ingredients', require('./ingredients'));
 
+// ROUTER: /api/recipesIngredients
+router.use('/recipesIngredients', require('./recipes_ingredients'));
+
 module.exports = router;
