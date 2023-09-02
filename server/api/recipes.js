@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllRecipes, getRecipeById, addRecipe } = require('../db/helpers/recipes');
+const { getAllRecipes, getRecipeById, addRecipe, updateRecipe } = require('../db/helpers/recipes');
 
 // GET - /api/recipes - get all recipes
 router.get('/', async(req, res, next) => {
@@ -33,6 +33,16 @@ router.post('/', async (req, res, next) => {
         res.send(newRecipe);
     }
     catch (error) {
+        next(error);
+    }
+});
+
+// PUT - /api/recipes - update a new user
+router.put('/:id', async (req, res, next) => {
+    try {
+        const recipe = await updateRecipe(req.params.id, req.body);
+        res.send(recipe);
+    } catch (error) {
         next(error);
     }
 });
