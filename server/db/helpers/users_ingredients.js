@@ -18,4 +18,16 @@ const createUsersIngredient = async({ usersId, ingredientsId }) => {
     }
 }
 
-module.exports = { createUsersIngredient }
+// GET - /api/users_ingredients - get all users_ingredients
+async function getAllUsersIngredients() {
+    try {
+        const { rows } = await client.query(`
+        SELECT * FROM usersIngredients;
+        `)
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { createUsersIngredient, getAllUsersIngredients }
