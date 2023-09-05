@@ -47,7 +47,8 @@ export default function AllRecipes() {
 							<h3>{recipe.title}</h3>
 							<h3>Ingredients: {recipe.portions}</h3>
 							<h3>Minutes: {recipe.cookingtime}</h3>
-							<a href="url">{recipe.video}</a>
+
+							<iframe width="478" height="850" src="https://www.youtube.com/embed/sdk0CEfTaIw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							
 							<h3></h3>
 							</div>
