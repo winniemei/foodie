@@ -83,3 +83,8 @@ button:focus-visible {
 #each-recipe {
   background-color: skyblue;
 }
+
+#navbar-container {
+  background-color: palevioletred;
+  margin: 2rem;
+}
