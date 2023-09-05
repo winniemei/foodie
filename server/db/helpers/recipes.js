@@ -44,23 +44,6 @@ async function getRecipeById(id) {
     }
 }
 
-// POST - /api/recipes - create a new recipe
-async function addRecipe({ title, portions, cookingTime, is_vegetarian, description, video, userId }) {
-    try {
-        const { rows: [recipe] } = await client.query(
-            `
-        INSERT INTO recipes(title, portions, cookingTime, is_vegetarian, description, video, userId)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
-        RETURNING *;
-        `,
-            [title, portions, cookingTime, is_vegetarian, description, video, userId]
-        );
-        return recipe;
-    } catch (error) {
-        throw error;
-    }
-}
-
 // PUT - /api/recipes/:id - update a recipe
 async function updateRecipe(id, body) {
     try {
@@ -99,4 +82,4 @@ async function updateRecipe(id, body) {
     }
   }
 
-module.exports = { createRecipe, getAllRecipes, getRecipeById, addRecipe, updateRecipe, deleteRecipe }
+module.exports = { createRecipe, getAllRecipes, getRecipeById, createRecipe, updateRecipe, deleteRecipe }
