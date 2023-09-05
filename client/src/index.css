@@ -110,3 +110,9 @@ button:focus-visible {
   background-color: rgb(222, 160, 226);
   border-radius: 10px;
 }
+
+#each-ingredient {
+  background-color: rgb(138, 183, 225);
+  border-radius: 10px;
+}
+
