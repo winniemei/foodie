@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div id="app-container">
-        <h1>APP COMPONENT</h1>
+        <h1>APP</h1>
         <NavBar />
         <MainSection />
       </div>

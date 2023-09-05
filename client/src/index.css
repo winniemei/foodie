@@ -90,3 +90,7 @@ button:focus-visible {
   display: flex;
   justify-content: space-evenly;
 }
+
+#home-container {
+  background-color: lightseagreen
+}
