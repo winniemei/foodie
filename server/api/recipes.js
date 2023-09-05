@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllRecipes, getRecipeById, addRecipe, updateRecipe, deleteRecipe } = require('../db/helpers/recipes');
+const { getAllRecipes, getRecipeById, createRecipe, updateRecipe, deleteRecipe } = require('../db/helpers/recipes');
 
 // GET - /api/recipes - get all recipes
 router.get('/', async(req, res, next) => {
@@ -28,7 +28,7 @@ router.get('/:id', async(req, res, next) => {
 // POST - /api/recipes - create a new recipe
 router.post('/', async (req, res, next) => {
     try {
-        const newRecipe = await addRecipe(req.body);
+        const newRecipe = await createRecipe(req.body);
         console.log(req.body)
         res.send(newRecipe);
     }

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllIngredients, getIngredientById, addIngredient, updateIngredient, deleteIngredient } = require('../db/helpers/ingredients');
+const { getAllIngredients, getIngredientById, createIngredient, updateIngredient, deleteIngredient } = require('../db/helpers/ingredients');
 
 // GET - /api/ingredients - get all ingredients
 router.get('/', async(req, res, next) => {
@@ -28,7 +28,7 @@ router.get('/:id', async(req, res, next) => {
 // POST - /api/ingredients - create a new ingredient
 router.post('/', async (req, res, next) => {
     try {
-        const newIngredient = await addIngredient(req.body);
+        const newIngredient = await createIngredient(req.body);
         console.log(req.body)
         res.send(newIngredient);
     }
