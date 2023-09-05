@@ -10,7 +10,6 @@ export default function Home() {
     {/* if not logged in, display the login form. if logged in,
     display the search bar for ingredients */}
     <div>
-        <LogIn />
     </div>
     </>
     )
