@@ -6,7 +6,9 @@ export default function NavBar() {
 	return (
 		<div id="navbar-container">
 			<Link to="/">Home</Link>
+            <Link to="/LogIn">Log In</Link>
 			<Link to="/recipes">Recipes</Link>
+            <Link to="/Logout">Log Out</Link>
 		</div>
 	);
 }

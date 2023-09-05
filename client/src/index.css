@@ -85,6 +85,8 @@ button:focus-visible {
 }
 
 #navbar-container {
-  background-color: palevioletred;
+  background-color: paleturquoise;
   margin: 2rem;
+  display: flex;
+  justify-content: space-evenly;
 }
