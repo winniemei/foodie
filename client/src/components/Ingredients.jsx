@@ -23,7 +23,7 @@ export default function AllIngredients() {
         <div>
             <div>
                 <div id="ingredients-container">
-                    <h1>Pantry</h1>
+                    <h1>Ingredients</h1>
                     {ingredients.map((ingredient) => {
                         return (
                             <>
@@ -37,6 +37,10 @@ export default function AllIngredients() {
                             </>
                         )
                     })}
+                    <div id="button-div">
+                    <button id="recipe-button">My Pantry</button>
+                    <button id="recipe-button">See Recipes</button>
+                    </div>
                 </div>
             </div>
         </div>

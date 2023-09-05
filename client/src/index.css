@@ -112,7 +112,15 @@ button:focus-visible {
 }
 
 #each-ingredient {
-  background-color: rgb(138, 183, 225);
   border-radius: 10px;
 }
 
+#recipe-button {
+  background-color: teal;
+  margin: 10px;
+}
+
+#button-div {
+  display: flex;
+  justify-content: center;
+}
