@@ -92,5 +92,9 @@ button:focus-visible {
 }
 
 #home-container {
-  background-color: lightseagreen
+  background-color: lightseagreen;
+}
+
+#log-in-container {
+  background-color: palegoldenrod;
 }
