@@ -45,6 +45,10 @@ export default function AllRecipes() {
 							<>
 							<div id="each-recipe">
 							<h3>{recipe.title}</h3>
+							<h3>Ingredients: {recipe.portions}</h3>
+							<h3>Minutes: {recipe.cookingtime}</h3>
+							<a href="url">{recipe.video}</a>
+							
 							<h3></h3>
 							</div>
 							</>
