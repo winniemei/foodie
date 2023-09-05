@@ -86,7 +86,8 @@ button:focus-visible {
 
 #navbar-container {
   background-color: paleturquoise;
-  margin: 2rem;
+  padding: 10px;
+  margin: 2rem 0 4rem 0;
   display: flex;
   justify-content: space-evenly;
 }
