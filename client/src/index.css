@@ -6,8 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background: url("https://wallpaper.dog/large/10832683.jpg");
-  /* background-size: 100%; */
-
+  /* background-size: 50%; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -70,7 +69,8 @@ button:focus-visible {
 }
 
 #main-section{
-  background-color: pink;
+  background-color: lightblue;
+  background-size: 50%;
   margin: 1rem;
   padding: 1rem;
   border-radius: 10px;
@@ -90,11 +90,14 @@ button:focus-visible {
 
 #navbar-container {
   background-color: paleturquoise;
-  padding: 10px;
-  margin: 2rem 0 4rem 0;
+  padding: 20px;
   display: flex;
   justify-content: space-evenly;
-  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  overflow: hidden;
 }
 
 #home-container {
