@@ -3,6 +3,7 @@ import AllRecipes from "./Recipes";
 import Home from "./Home";
 import LogIn from "./LogIn";
 import LogOut from "./LogOut";
+import AllIngredients from "./Ingredients";
 
 export default function MainSection() {
 	return (
@@ -13,6 +14,7 @@ export default function MainSection() {
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/logout" element={<LogOut />} />
 				<Route path="/recipes" element={<AllRecipes />} />
+                <Route path="/ingredients" element={<AllIngredients />} />
 			</Routes>
 		</div>
 	);

@@ -1,3 +1,4 @@
+import AllIngredients from "./Ingredients"
 import LogIn from "./LogIn"
 
 export default function Home() {
@@ -7,9 +8,8 @@ export default function Home() {
     <h1>WELCOME HOME!</h1>
     <h1>What cha got in the fridge?</h1>
     </div>
-    {/* if not logged in, display the login form. if logged in,
-    display the search bar for ingredients */}
     <div>
+        <AllIngredients />
     </div>
     </>
     )

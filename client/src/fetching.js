@@ -9,3 +9,13 @@ export const fetchAllRecipes = async () => {
         console.error("Cannot fetch all recipes", error);
     }
 }
+
+export const fetchAllIngredients = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/ingredients`);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Cannot fetch all ingredients", error);
+    }
+}
