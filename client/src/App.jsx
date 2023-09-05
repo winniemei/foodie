@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <div id="app-container">
-        <h1>Hello</h1>
+        <h1>APP COMPONENT</h1>
         <MainSection />
       </div>
     </>

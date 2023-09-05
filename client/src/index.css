@@ -74,6 +74,12 @@ button:focus-visible {
   padding: 1rem;
 }
 
+#recipe-container {
+  background-color: lightgreen;
+  margin: 1rem;
+  padding: 2rem;
+}
+
 #each-recipe {
   background-color: skyblue;
 }
