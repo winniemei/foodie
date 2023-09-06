@@ -5,8 +5,8 @@ import MyPantry from "./MyPantry.jsx";
 export default function AllIngredients() {
     const [ingredients, setIngredients] = useState([]);
     const [searchParam, setSearchParam] = useState("");
-    const [checked, setChecked] = useState(false);
     const [checkedPantryIngredients, setCheckedPantryIngredients] = useState([]);
+    const [checkboxes, setCheckboxes] = useState({});
 
     // function to add ingredients to my pantry
     async function addToPantryIngredients(id) {
@@ -34,15 +34,19 @@ export default function AllIngredients() {
     // handle the user clicking the checkboxes and updating the pantry
     async function handleCheck(id) {
         try {
-            if (checked) {
-                console.log('is this checked? ' + checked);
-                addToPantryIngredients(id);
-            } else {
-                console.log('is this checked?' + checked);
+            const isChecked = checkboxes[id];
+
+            if (isChecked) {
                 removeFromPantryIngredients(id);
+            } else {
+                addToPantryIngredients(id);
             }
-            setChecked(!checked);
-            console.log('changed value of checkbox')
+            setCheckboxes(previousCheckboxes => ({
+                ...previousCheckboxes,
+                [id]: !isChecked,
+              }))
+            console.log('changed value of checkbox'+ id)
+            console.log('checkboxes', checkboxes)
         } catch (error) {
             console.error(error);
         }
