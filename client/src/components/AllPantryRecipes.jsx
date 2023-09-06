@@ -3,7 +3,7 @@ import { fetchAllRecipes, fetchRecipesIngredientsJunctionTable } from "../fetchi
 
 export default function AllPantryRecipes() {
     const [recipes, setRecipes] = useState([]);
-	const [pantryRecipes, setPantryRecipes] = useState({});
+	const [pantryRecipes, setPantryRecipes] = useState([]);
 
 	// render all recipes    
 	useEffect(() => {
@@ -11,6 +11,7 @@ export default function AllPantryRecipes() {
 			const response = await fetchAllRecipes();
 			console.log(response);
 			setRecipes(response);
+            console.log('ALL RECIPES', response)
 		}
 		getAllRecipes();
 	}, []);
@@ -19,7 +20,7 @@ export default function AllPantryRecipes() {
 		async function getAllRecipesIngredients() {
 			const junctionResponse = await fetchRecipesIngredientsJunctionTable();
             setPantryRecipes(junctionResponse);
-            console.log('ALL PANTRY RECIPES' + pantryRecipes);
+            console.log('ALL PANTRY RECIPES', junctionResponse);
 
 		}
 		getAllRecipesIngredients();
