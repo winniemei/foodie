@@ -86,7 +86,7 @@ export default function AllIngredients() {
                         )
                     })}
                     <div id="pantry">
-                    <h1>My Pantry<MyPantry checkedPantryIngredients={checkedPantryIngredients}/></h1>
+                    <h1>My Pantry<MyPantry checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/></h1>
                     </div>
                     <div id="button-div">
                         <button id="recipe-button">See Recipes</button>
