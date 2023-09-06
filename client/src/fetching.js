@@ -19,3 +19,13 @@ export const fetchAllIngredients = async () => {
         console.error("Cannot fetch all ingredients", error);
     }
 }
+
+export const fetchRecipesIngredientsJunctionTable = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/recipesIngredients`);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Cannot fetch all recipes + ingredients", error);
+    }
+}

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { fetchAllRecipes } from "../fetching.js"
+import { fetchAllRecipes, fetchRecipesIngredientsJunctionTable } from "../fetching.js"
 
 export default function AllRecipes() {
 	const [recipes, setRecipes] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
+    const [junctionTable, setJunctionTable] = useState([]);
 	// render all recipes    
 	useEffect(() => {
 		async function getAllRecipes() {
@@ -19,11 +20,15 @@ export default function AllRecipes() {
 		getAllRecipes();
 	}, []);
 
-	const recipesToDisplay = searchParam
-		? recipes.filter((recipe) =>
-			recipe.toLowerCase().includes(searchParam)
-		)
-		: recipes;
+    useEffect(() => {
+		async function getAllRecipesIngredients() {
+			const junctionResponse = await fetchRecipesIngredientsJunctionTable();
+
+            console.log('JUNCTION TABLE RESPONSE' + JSON.stringify(junctionResponse));
+
+		}
+		getAllRecipesIngredients();
+	}, []);
 
 	return (
 		<div>
