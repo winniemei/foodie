@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchAllRecipes, fetchAllIngredients } from "../fetching.js"
 import MyPantry from "./MyPantry.jsx";
+import AllPantryRecipes from "./AllPantryRecipes.jsx";
 
 export default function AllIngredients() {
     const [ingredients, setIngredients] = useState([]);
@@ -91,6 +92,7 @@ export default function AllIngredients() {
                     </div>
                     <div id="button-div">
                         <button id="recipe-button">See Recipes</button>
+                        <AllPantryRecipes checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients} />
                     </div>
                 </div>
             </div>
