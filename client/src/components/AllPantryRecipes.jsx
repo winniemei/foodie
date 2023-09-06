@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { fetchAllRecipes, fetchRecipesIngredientsJunctionTable } from "../fetching.js"
 
-export default function AllPantryRecipes() {
+export default function AllPantryRecipes({ checkedPantryIngredients, ingredients }) {
     const [recipes, setRecipes] = useState([]);
 	const [pantryRecipes, setPantryRecipes] = useState([]);
+	const checkedPantryIngredientsArray = [...checkedPantryIngredients]
 
 	// render all recipes    
 	useEffect(() => {
@@ -26,12 +27,25 @@ export default function AllPantryRecipes() {
 		getAllRecipesIngredients();
 	}, []);
 
+	// check if pantry ingredient ids are contained in Pantry recipes
+	// iterate thru the junction table, return recipesid for when checkedPantryIngredientsArray id equals to ingredientsid of pantryRecipes
+	const chosenRecipes = []; 
+
+	pantryRecipes.map((pantryRecipe) => {
+		if (pantryRecipe.ingredientsid in checkedPantryIngredientsArray) {
+			chosenRecipes.push(pantryRecipe.recipesid)
+			console.log('CHOSEN RECIPES', chosenRecipes);
+			return pantryRecipe.recipesid;
+		}
+	})
+
 	return (
 		<div>
-			{/* <div>
+			<div>
 				<div id="recipe-container">
-					<h1>Here are my recipes!</h1>
-					{pantryRecipes.map((recipe) => {
+					<h1>Here's some food that you can make!</h1>
+					
+					{/* {pantryRecipes.map((recipe) => {
 						return(
 							<>
 							<div id="each-recipe">
@@ -45,9 +59,9 @@ export default function AllPantryRecipes() {
 							</div>
 							</>
 						)
-					})}
+					})} */}
 				</div>
-			</div> */}
+			</div>
 		</div>
 	)
 }
