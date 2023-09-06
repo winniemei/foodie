@@ -78,7 +78,7 @@ export default function AllIngredients() {
                                 <div id="each-ingredient">
                                     <label className="checkbox-container">
                                         <input type="checkbox" id={ingredient.ingredients_id} onChange={() => handleCheck(ingredient.ingredients_id)} />
-                                        {ingredient.name} {ingredient.ingredients_id}
+                                        {ingredient.name}
                                         <span className="checkmark"></span>
                                     </label>
                                 </div>
@@ -86,7 +86,8 @@ export default function AllIngredients() {
                         )
                     })}
                     <div id="pantry">
-                    <h1>My Pantry<MyPantry checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/></h1>
+                    <h2>My Pantry</h2>
+                    <MyPantry checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/>
                     </div>
                     <div id="button-div">
                         <button id="recipe-button">See Recipes</button>
