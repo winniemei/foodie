@@ -39,15 +39,15 @@ const createTables = async () => {
             portions TEXT [],
             cookingTime INTEGER NOT NULL,
             is_vegetarian BOOLEAN,
-            description BYTEA NOT NULL,
-            video varchar(255),
+            description varchar(1000) NOT NULL,
+            video varchar(1000),
             userId INTEGER REFERENCES users(users_id)
         );
         CREATE TABLE ingredients (
             ingredients_id SERIAL PRIMARY KEY,
             name varchar(255) UNIQUE NOT NULL,
             type varchar(255),
-            image BYTEA
+            image varchar(1000)
         );
         CREATE TABLE recipesIngredients (
             recipes_ingredients_id SERIAL PRIMARY KEY,

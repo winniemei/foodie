@@ -2,8 +2,8 @@
 
 // Recipes
 const recipes = [
-    { title: "Fried eggs", portions: ['2 eggs','1/4 stick of butter'], cookingTime: 15, is_vegetarian: true, description: "1. Heat a skillet over medium-low, allowing it to fully pre-heat (3-5 minutes) 2. Add the butter (or fat of choice) and swirl to coat the surface of the skillet. 3. Crack the egg into the frying pan and cook until the whites are set and the yolk is still liquid (sunny side up). 4.For over easy, over medium, or over hard, cook the egg until the whites are 50-75% set, then flip the egg and continue cooking on the second side until the yolk is cooked to your desired doneness. 5. Transfer the egg to a plate and season with salt and pepper. Enjoy!", video: 'https://www.youtube.com/shorts/sdk0CEfTaIw', userId: 1 },
-    { title: "Salmon avocado bowl", portions: ['1 filet of salmon', '1 avocado'], cookingTime: 20, is_vegetarian: true, description: "you put some avo and salmon together", video: 'https://www.youtube.com/shorts/sdk0CEfTaIw', userId: 2 }
+    { title: "Fried eggs", portions: ['2 eggs','1/4 stick of butter'], cookingTime: 15, is_vegetarian: true, description: "1. Heat a skillet over medium-low, allowing it to fully pre-heat (3-5 minutes) 2. Add the butter (or fat of choice) and swirl to coat the surface of the skillet. 3. Crack the egg into the frying pan and cook until the whites are set and the yolk is still liquid (sunny side up). 4.For over easy, over medium, or over hard, cook the egg until the whites are 50-75% set, then flip the egg and continue cooking on the second side until the yolk is cooked to your desired doneness. 5. Transfer the egg to a plate and season with salt and pepper. Enjoy!", video: 'https://www.youtube.com/embed/sdk0CEfTaIw', userId: 1 },
+    { title: "Salmon avocado bowl", portions: ['1 filet of salmon', '1 avocado'], cookingTime: 20, is_vegetarian: true, description: "you put some avo and salmon together", video: 'https://www.youtube.com/embed/WM_A_ehCt_4', userId: 2 }
 ]
 
 // Users
