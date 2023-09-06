@@ -6,25 +6,39 @@ export default function AllIngredients() {
     const [searchParam, setSearchParam] = useState("");
     const [checked, setChecked] = useState(false);
     const [checkedPantryIngredients, setCheckedPantryIngredients] = useState([]);
-    // handling if the ingredient is checked off by user
-
+    
+    // function to add ingredients to my pantry
     async function addToPantryIngredients(id) {
         try {
         const updatedCheckedPantryIngredients = [...checkedPantryIngredients];
         updatedCheckedPantryIngredients.push(id);
         setCheckedPantryIngredients(updatedCheckedPantryIngredients);
-        console.log('listing my checked pantry ingredients' + checkedPantryIngredients);
+        console.log('listing my checked pantry ingredients after addition' + checkedPantryIngredients);
         } catch (error) {
             console.error(error);
         }
     }
+
+    // function to remove ingredients from my pantry
+    async function removeFromPantryIngredients(id) {
+        try {
+        const updatedCheckedPantryIngredients = checkedPantryIngredients.filter(ingredient => ingredient !== id)
+        setCheckedPantryIngredients(updatedCheckedPantryIngredients);
+        console.log('listing my checked pantry ingredients after removal' + checkedPantryIngredients);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // handle the user clicking the checkboxes and updating the pantry
     async function handleCheck(id) {
         try {
             if (checked) {
                 console.log('is this checked? ' + checked);
                 addToPantryIngredients(id);
             } else {
-                console.log('not checked');
+                console.log('is this checked?' + checked);
+                removeFromPantryIngredients(id);
             }
             setChecked(!checked);
             console.log('changed value of checkbox')
@@ -59,6 +73,7 @@ export default function AllIngredients() {
                                 <div id="each-ingredient">
                                     <label className="checkbox-container">
                                         <input type="checkbox" id={ingredient.ingredients_id} onChange={() => handleCheck(ingredient.ingredients_id)}/>
+                                        <h2>{checkedPantryIngredients}</h2>
                                         {ingredient.name} {ingredient.ingredients_id}
                                         <span className="checkmark"></span>
                                     </label>
