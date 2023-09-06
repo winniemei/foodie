@@ -4,19 +4,33 @@ import { fetchAllRecipes, fetchAllIngredients } from "../fetching.js"
 export default function AllIngredients() {
     const [ingredients, setIngredients] = useState([]);
     const [searchParam, setSearchParam] = useState("");
-    const [checked, setChecked] = useState(null);
-
+    const [checked, setChecked] = useState(false);
+    const [checkedPantryIngredients, setCheckedPantryIngredients] = useState([]);
     // handling if the ingredient is checked off by user
-    const handleCheck = (id) => {
+
+    async function addToPantryIngredients(id) {
+        try {
+        const updatedCheckedPantryIngredients = [...checkedPantryIngredients];
+        updatedCheckedPantryIngredients.push(id);
+        setCheckedPantryIngredients(updatedCheckedPantryIngredients);
+        console.log('listing my checked pantry ingredients' + checkedPantryIngredients);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function handleCheck(id) {
+        try {
             if (checked) {
-                console.log('checked');
-                console.log(checked);
-                console.log(id);
+                console.log('is this checked? ' + checked);
+                addToPantryIngredients(id);
             } else {
                 console.log('not checked');
             }
             setChecked(!checked);
             console.log('changed value of checkbox')
+            } catch (error) {
+                console.error(error);
+            }
         };
 
     // render all recipes    
