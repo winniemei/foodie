@@ -1,21 +1,16 @@
 import { useState, useEffect } from "react";
 import { fetchAllRecipes, fetchRecipesIngredientsJunctionTable } from "../fetching.js"
 
-export default function AllRecipes() {
-	const [recipes, setRecipes] = useState([]);
-	const [searchParam, setSearchParam] = useState("");
-    const [junctionTable, setJunctionTable] = useState([]);
+export default function AllPantryRecipes() {
+    const [recipes, setRecipes] = useState([]);
+	const [pantryRecipes, setPantryRecipes] = useState({});
+
 	// render all recipes    
 	useEffect(() => {
 		async function getAllRecipes() {
 			const response = await fetchAllRecipes();
-			// if (response.success) {
 			console.log(response);
 			setRecipes(response);
-			// } else {
-			// 	setError(response.error.message);
-			// 	console.log("error loading recipes page");
-			// }
 		}
 		getAllRecipes();
 	}, []);
@@ -23,8 +18,8 @@ export default function AllRecipes() {
     useEffect(() => {
 		async function getAllRecipesIngredients() {
 			const junctionResponse = await fetchRecipesIngredientsJunctionTable();
-
-            console.log('JUNCTION TABLE RESPONSE' + JSON.stringify(junctionResponse));
+            setPantryRecipes(junctionResponse);
+            console.log('ALL PANTRY RECIPES' + pantryRecipes);
 
 		}
 		getAllRecipesIngredients();
@@ -32,20 +27,10 @@ export default function AllRecipes() {
 
 	return (
 		<div>
-			<div>
-				{/* <label>
-					Search:{" "}
-					<input
-						type="text"
-						placeholder="Search"
-						onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
-					/>
-				</label> */}
-			</div>
-			<div>
+			{/* <div>
 				<div id="recipe-container">
 					<h1>Here are my recipes!</h1>
-					{recipes.map((recipe) => {
+					{pantryRecipes.map((recipe) => {
 						return(
 							<>
 							<div id="each-recipe">
@@ -61,7 +46,7 @@ export default function AllRecipes() {
 						)
 					})}
 				</div>
-			</div>
+			</div> */}
 		</div>
 	)
 }
