@@ -4,6 +4,21 @@ import { fetchAllRecipes, fetchAllIngredients } from "../fetching.js"
 export default function AllIngredients() {
     const [ingredients, setIngredients] = useState([]);
     const [searchParam, setSearchParam] = useState("");
+    const [checked, setChecked] = useState(null);
+
+    // handling if the ingredient is checked off by user
+    const handleCheck = (id) => {
+            if (checked) {
+                console.log('checked');
+                console.log(checked);
+                console.log(id);
+            } else {
+                console.log('not checked');
+            }
+            setChecked(!checked);
+            console.log('changed value of checkbox')
+        };
+
     // render all recipes    
     useEffect(() => {
         async function getAllIngredients() {
@@ -29,8 +44,8 @@ export default function AllIngredients() {
                             <>
                                 <div id="each-ingredient">
                                     <label className="checkbox-container">
-                                        <input type="checkbox" />
-                                        {ingredient.name}
+                                        <input type="checkbox" id={ingredient.ingredients_id} onChange={() => handleCheck(ingredient.ingredients_id)}/>
+                                        {ingredient.name} {ingredient.ingredients_id}
                                         <span className="checkmark"></span>
                                     </label>
                                 </div>
