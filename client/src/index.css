@@ -128,3 +128,7 @@ button:focus-visible {
   display: flex;
   justify-content: center;
 }
+
+#pantry {
+  background-color: lightseagreen;
+}
