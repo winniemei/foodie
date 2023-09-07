@@ -36,6 +36,7 @@ export default function AllRecipes() {
 				<label>
 					Search:{" "}
 					<input
+						className="inputField"
 						type="text"
 						placeholder="Search"
 						onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
