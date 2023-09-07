@@ -31,6 +31,7 @@ export default function CreateRecipe() {
 
     return (
         <div className="formGroup">
+            <h2>Add a new recipe</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     className="inputField"

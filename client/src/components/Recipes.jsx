@@ -63,7 +63,6 @@ export default function AllRecipes() {
 						)
 					})}
 					<br />
-					<div>Add a new recipe</div>
 					<div><CreateRecipe /></div>
 				</div>
 			</div>

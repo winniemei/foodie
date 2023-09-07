@@ -144,3 +144,18 @@ button:focus-visible {
 #pantry-recipes {
   padding: .01rem;
 }
+
+.inputField {
+  background-color: lavender;
+  border-radius: 10px;
+  border: 2px pink;
+  color: grey;
+  height: 2em;
+  margin: .3em;
+}
+
+.formGroup {
+  background-color: lightblue;
+  padding: .3em;
+  border-radius: 10px;
+}
