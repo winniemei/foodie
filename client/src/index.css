@@ -78,7 +78,7 @@ button:focus-visible {
 
 #recipe-container {
   background-color: lightgreen;
-  margin: 1rem;
+  margin: 2rem;
   padding: 2rem;
   border-radius: 10px;
 }
@@ -136,4 +136,8 @@ button:focus-visible {
 
 #button-detail {
   background-color: lightseagreen;
+}
+
+#pantry-recipes {
+  padding: .01rem;
 }
