@@ -11,8 +11,6 @@ export default function DeleteRecipe({specificId}) {
   async function handleDelete() {
     try {
       const response = await deleteRecipe(specificId);
-      const result = await response.json();
-      console.log(result);
       navigate("/recipes")
     }
     catch (error) {
