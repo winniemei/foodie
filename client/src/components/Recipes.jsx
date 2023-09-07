@@ -8,39 +8,34 @@ export default function AllRecipes() {
 	useEffect(() => {
 		async function getAllRecipes() {
 			const response = await fetchAllRecipes();
-			// if (response.success) {
 			console.log(response);
 			setRecipes(response);
-			// } else {
-			// 	setError(response.error.message);
-			// 	console.log("error loading recipes page");
-			// }
 		}
 		getAllRecipes();
 	}, []);
 
 	const recipesToDisplay = searchParam
 		? recipes.filter((recipe) =>
-			recipe.toLowerCase().includes(searchParam)
+			recipe.title.toLowerCase().includes(searchParam)
 		)
 		: recipes;
 
 	return (
 		<div>
 			<div>
-				{/* <label>
+				<label>
 					Search:{" "}
 					<input
 						type="text"
 						placeholder="Search"
 						onChange={(e) => setSearchParam(e.target.value.toLowerCase())}
 					/>
-				</label> */}
+				</label>
 			</div>
 			<div>
 				<div id="recipe-container">
 					<h1>All Recipes</h1>
-					{recipes.map((recipe) => {
+					{recipesToDisplay.map((recipe) => {
 						return(
 							<>
 							<div id="each-recipe">
