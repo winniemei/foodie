@@ -36,13 +36,13 @@ export const deleteRecipe = async (id) => {
 
 export const createRecipe = async () => {
     try {
+        console.log('...starting to post')
         const response = await fetch(`${BASE_URL}/recipes`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                recipe: {
                     cookingTime: 20,
                     description: "description",
                     is_vegetarian: true,
@@ -50,9 +50,10 @@ export const createRecipe = async () => {
                     title: "title",
                     userId: 2,
                     video: "some url"
-                }
             })
-        })
+        });
+        const result = await response.json();
+        return result;
     } catch (error) {
         console.error("Cannot post recipe", error);
     }

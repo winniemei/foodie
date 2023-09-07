@@ -15,13 +15,7 @@ export default function CreateRecipe() {
         e.preventDefault();
 
         const APIData = await createRecipe();
-        if (APIData.success) {
-            console.log("New Player: ", APIData);
-            alert("Congrats!! You made a new post!")
-            navigate('/posts')
-        } else {
-            alert("Apologies -- you have to be logged in and enter a valid post. Make sure to set delivery to either true or false.")
-        }
+        console.log("API Data",APIData)
     }
 
     return (
