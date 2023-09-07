@@ -7,6 +7,12 @@ export default function AllIngredients() {
     const [ingredients, setIngredients] = useState([]);
     const [checkedPantryIngredients, setCheckedPantryIngredients] = useState([]);
     const [checkboxes, setCheckboxes] = useState({});
+    const [seeRecipes, setSeeRecipes] = useState(false);
+
+    // function to see pantry recipes
+    function handleSeeRecipes() {
+        setSeeRecipes(!seeRecipes);
+    }
 
     // function to add ingredients to my pantry
     async function addToPantryIngredients(id) {
@@ -90,9 +96,9 @@ export default function AllIngredients() {
                     <h2>My Pantry</h2>
                     <MyPantry checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/>
                     </div>
-                    <div id="button-div">
-                        <button id="recipe-button">See Recipes</button>
-                        <AllPantryRecipes checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients} />
+                    <button id="recipe-button" onClick={handleSeeRecipes}>See Recipes</button>
+                    <div id="pantry-recipes">
+                        {seeRecipes && <AllPantryRecipes checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/>}
                     </div>
                 </div>
             </div>

@@ -44,8 +44,6 @@ export default function AllPantryRecipes({ checkedPantryIngredients, ingredients
 		<div>
 			<div>
 				<div id="recipe-container">
-					<h1>Here's some food that you can make!</h1>
-
 					{recipes
 						.filter((recipe) => filteredRecipes.includes(recipe.recipes_id))
 						.map((recipe) => {
