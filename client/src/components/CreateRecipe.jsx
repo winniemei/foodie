@@ -1,63 +1,66 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { createRecipe } from "../fetching";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchAllRecipes } from "../fetching";
-
-const cohortName = "2306-GHP-ET-WEB-FT-SF";
-const API_URL = `https://strangers-things.herokuapp.com/api/${cohortName}`;
 
 export default function CreateRecipe() {
-	// const [postTitle, setpostTitle] = useState("");
-	// const [postPrice, setpostPrice] = useState("");
-	// const [postLocation, setpostLocation] = useState("");
-	// const [postDelivery, setpostDelivery] = useState(false);
-	// const [postDescription, setpostDescription] = useState("");
+    // const [title, setTitle] = useState("");
+    // const [description, setDescription] = useState("")
+    // const [price, setPrice] = useState("");
+    // const [willDeliver, setWillDeliver] = useState("")
+    // const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-	// const [successMessage, setSuccessMessage] = useState(null);
+    async function handleSubmit(e) {
+        e.preventDefault();
 
-	// const navigate = useNavigate();
+        const APIData = await createRecipe();
+        if (APIData.success) {
+            console.log("New Player: ", APIData);
+            alert("Congrats!! You made a new post!")
+            navigate('/posts')
+        } else {
+            alert("Apologies -- you have to be logged in and enter a valid post. Make sure to set delivery to either true or false.")
+        }
+    }
 
-	// // access current state from redux store
-	// const tokenC = useSelector((state) => state.user.token);
-
-	// const handleChange = (event) => {
-	// 	setpostDelivery(event.target.value);
-	// };
-
-	// async function handleSubmit(event) {
-	// 	event.preventDefault();
-	// 	let postData = {
-	// 		post: {
-	// 			title: postTitle,
-	// 			price: postPrice,
-	// 			location: postLocation,
-	// 			willDeliver: postDelivery,
-	// 			description: postDescription,
-	// 		},
-	// 	};
-
-	// 	try {
-	// 		const response = await fetch(`${API_URL}/posts`, {
-	// 			method: "POST",
-	// 			body: JSON.stringify(postData),
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 				Authorization: `Bearer ${tokenC}`,
-	// 			},
-	// 		});
-	// 		console.log("response from NPF: ", response);
-	// 		const result = await response.json();
-	// 		console.log("result from NPF: ", result);
-	// 		setSuccessMessage("Post submitted");
-	// 		fetchAllPosts();
-	// 		navigate("/profile");
-	// 	} catch (err) {
-	// 		console.error("Oops, something went wrong with adding that post!", err);
-	// 	}
-	// }
-
-	return (
-		<>
-			
-		</>
-	);
+    return (
+        <div className="formGroup">
+            <form onSubmit={handleSubmit}>
+                <input
+                    className="inputField"
+                    value="title"
+                    type="text"
+                    name="title"
+                    placeholder="title"
+                    onChange={(e) => setTitle(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value="{price}"
+                    type="text"
+                    name="price"
+                    placeholder="price"
+                    onChange={(e) => setPrice(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value="{description}"
+                    type="text"
+                    name="description"
+                    placeholder="description"
+                    onChange={(e) => setDescription(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value="{willDeliver}"
+                    type="text"
+                    name="willDeliver"
+                    placeholder="willDeliver"
+                    onChange={(e) => setWillDeliver(e.target.value)}
+                /><br /><br />
+                <button>Submit</button>
+            </form>
+        </div>
+    );
 }
