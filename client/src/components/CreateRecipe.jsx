@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { createRecipe } from "../fetching";
 import { useNavigate } from "react-router-dom";
+import { Input, Select, MenuItem } from "@mui/material";
 
 export default function CreateRecipe() {
     const [cookingTime, setCookingTime] = useState("");
     const [description, setDescription] = useState("")
-    const [is_vegetarian, setIsVegeterian] = useState("");
+    const [is_vegetarian, setIsVegetarian] = useState(false);
     const [portions, setPortions] = useState("")
     const [title, setTitle] = useState(null);
     const [userId, setUserId] = useState(null);
@@ -20,9 +21,13 @@ export default function CreateRecipe() {
         navigate(0);
         navigate('/recipes');
         } catch (error) {
-            console.error(error);
+            console.error(error);       
         }
     }
+
+    const handleChange = (e) => {
+		setIsVegetarian(e.target.value);
+	};
 
     return (
         <div className="formGroup">
@@ -35,10 +40,10 @@ export default function CreateRecipe() {
                     placeholder="title of recipe"
                     onChange={(e) => setTitle(e.target.value)}
                 /><br />
-                <input
+                <div>Cooking Time?</div><Input
                     className="inputField"
                     value={cookingTime}
-                    type="text"
+                    type="number"
                     name="cookingTime"
                     placeholder="cookingTime"
                     onChange={(e) => setCookingTime(e.target.value)}
@@ -59,14 +64,18 @@ export default function CreateRecipe() {
                     placeholder="description"
                     onChange={(e) => setDescription(e.target.value)}
                 /><br />
-                <input
+                <div>Vegetarian?</div>
+                <Select
                     className="inputField"
                     value={is_vegetarian}
                     type="text"
                     name="is_vegetarian"
                     placeholder="is_vegetarian"
-                    onChange={(e) => setIsVegeterian(e.target.value)}
-                /><br />
+                    onChange={handleChange}
+                >
+                    <MenuItem value={false}>No</MenuItem>
+					<MenuItem value={true}>Yes</MenuItem>
+                </Select><br />
                 <input
                     className="inputField"
                     value={video}
