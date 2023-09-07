@@ -46,7 +46,6 @@ export default function CreateRecipe() {
                     value={cookingTime}
                     type="number"
                     name="cookingTime"
-                    placeholder="cookingTime"
                     onChange={(e) => setCookingTime(e.target.value)}
                 /><br />
                 <input

@@ -147,10 +147,11 @@ button:focus-visible {
 }
 
 .inputField {
+  font-family: 'Luckiest Guy', cursive;
   background-color: lavender;
   border-radius: 10px;
   border: 2px pink;
-  color: grey;
+  color: darkgrey;
   height: 2em;
   margin: .3em;
 }
