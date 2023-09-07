@@ -51,7 +51,7 @@ const createTables = async () => {
         );
         CREATE TABLE recipesIngredients (
             recipes_ingredients_id SERIAL PRIMARY KEY,
-            recipesId INTEGER REFERENCES recipes(recipes_id) NOT NULL,
+            recipesId INTEGER REFERENCES recipes(recipes_id) ON DELETE CASCADE NOT NULL,
             ingredientsId INTEGER REFERENCES ingredients(ingredients_id) NOT NULL
         );
         CREATE TABLE usersIngredients (
