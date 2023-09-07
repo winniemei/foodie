@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { createRecipe } from "../fetching";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateRecipe() {
-    // const [title, setTitle] = useState("");
-    // const [description, setDescription] = useState("")
-    // const [price, setPrice] = useState("");
-    // const [willDeliver, setWillDeliver] = useState("")
-    // const [error, setError] = useState(null);
+    const [cookingTime, setCookingTime] = useState("");
+    const [description, setDescription] = useState("")
+    const [is_vegetarian, setIsVegeterian] = useState("");
+    const [portions, setPortions] = useState("")
+    const [title, setTitle] = useState(null);
+    const [userId, setUserId] = useState(null);
+    const [video, setVideo] = useState(null);
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const APIData = await createRecipe();
-        console.log("API Data",APIData)
+        const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
+        console.log("API Data", APIData)
     }
 
     return (
@@ -23,23 +24,31 @@ export default function CreateRecipe() {
             <form onSubmit={handleSubmit}>
                 <input
                     className="inputField"
-                    value="title"
+                    value={title}
                     type="text"
                     name="title"
-                    placeholder="title"
+                    placeholder="title of recipe"
                     onChange={(e) => setTitle(e.target.value)}
                 /><br />
                 <input
                     className="inputField"
-                    value="{price}"
+                    value={cookingTime}
                     type="text"
-                    name="price"
-                    placeholder="price"
-                    onChange={(e) => setPrice(e.target.value)}
+                    name="cookingTime"
+                    placeholder="cookingTime"
+                    onChange={(e) => setCookingTime(e.target.value)}
                 /><br />
                 <input
                     className="inputField"
-                    value="{description}"
+                    value={portions}
+                    type="text"
+                    name="portions"
+                    placeholder="ingredients needed"
+                    onChange={(e) => setPortions(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value={description}
                     type="text"
                     name="description"
                     placeholder="description"
@@ -47,12 +56,29 @@ export default function CreateRecipe() {
                 /><br />
                 <input
                     className="inputField"
-                    value="{willDeliver}"
+                    value={is_vegetarian}
                     type="text"
-                    name="willDeliver"
-                    placeholder="willDeliver"
-                    onChange={(e) => setWillDeliver(e.target.value)}
-                /><br /><br />
+                    name="is_vegetarian"
+                    placeholder="is_vegetarian"
+                    onChange={(e) => setIsVegeterian(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value={video}
+                    type="text"
+                    name="video"
+                    placeholder="video"
+                    onChange={(e) => setVideo(e.target.value)}
+                /><br />
+                <input
+                    className="inputField"
+                    value={userId}
+                    type="text"
+                    name="userId"
+                    placeholder="userId"
+                    onChange={(e) => setUserId(e.target.value)}
+                /><br />
+                <br />
                 <button>Submit</button>
             </form>
         </div>

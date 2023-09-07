@@ -34,7 +34,7 @@ export const deleteRecipe = async (id) => {
     }
 }
 
-export const createRecipe = async () => {
+export const createRecipe = async (cookingTime, description, is_vegetarian, portions, title, userId, video) => {
     try {
         console.log('...starting to post')
         const response = await fetch(`${BASE_URL}/recipes`, {
@@ -43,13 +43,13 @@ export const createRecipe = async () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                    cookingTime: 20,
-                    description: "description",
-                    is_vegetarian: true,
-                    portions: ["Something"],
-                    title: "title",
-                    userId: 2,
-                    video: "some url"
+                    cookingTime: cookingTime,
+                    description: description,
+                    is_vegetarian: is_vegetarian,
+                    portions: [portions],
+                    title: title,
+                    userId: userId,
+                    video: video
             })
         });
         const result = await response.json();
