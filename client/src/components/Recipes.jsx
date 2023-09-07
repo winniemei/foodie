@@ -39,7 +39,7 @@ export default function AllRecipes() {
 			</div>
 			<div>
 				<div id="recipe-container">
-					<h1>Here are my recipes!</h1>
+					<h1>All Recipes</h1>
 					{recipes.map((recipe) => {
 						return(
 							<>

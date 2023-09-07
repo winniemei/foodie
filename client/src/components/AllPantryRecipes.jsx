@@ -33,10 +33,7 @@ export default function AllPantryRecipes({ checkedPantryIngredients, ingredients
 	const filteredRecipes = [];
 	{
 		pantryRecipes.map((pantryRecipe) => {
-			console.log('pantryRecipe.ingredientsid', pantryRecipe.ingredientsid);
-			console.log('LOGGING CHECKED PANTRY INGREDIENTS', checkedPantryIngredientsArray);
 			if (checkedPantryIngredientsArray.includes(pantryRecipe.ingredientsid)) {
-				console.log('recipeid', pantryRecipe.recipesid);
 				filteredRecipes.push(pantryRecipe.recipesid);
 				console.log('filtered recipes', filteredRecipes)
 			}
@@ -48,24 +45,24 @@ export default function AllPantryRecipes({ checkedPantryIngredients, ingredients
 			<div>
 				<div id="recipe-container">
 					<h1>Here's some food that you can make!</h1>
-					
+
 					{recipes
-					.filter((recipe) => filteredRecipes.includes(recipe.recipes_id))
-					.map((recipe) => {
-						return (
-							<>
-								<div id="each-recipe">
-									<h3>{recipe.title}</h3>
-									<h3>Ingredients: {recipe.portions}</h3>
-									<h3>Minutes: {recipe.cookingtime}</h3>
+						.filter((recipe) => filteredRecipes.includes(recipe.recipes_id))
+						.map((recipe) => {
+							return (
+								<>
+									<div id="each-recipe">
+										<h3>{recipe.title}</h3>
+										<h3>Ingredients: {recipe.portions}</h3>
+										<h3>Minutes: {recipe.cookingtime}</h3>
 
-									<iframe width="478" height="850" src={recipe.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+										<iframe width="478" height="850" src={recipe.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-									<h3></h3>
-								</div>
-							</>
-						)
-					})}
+										<h3></h3>
+									</div>
+								</>
+							)
+						})}
 
 				</div>
 			</div>
