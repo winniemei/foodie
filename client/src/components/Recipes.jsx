@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { fetchAllRecipes } from "../fetching.js"
+import { fetchAllRecipes } from "../fetching.js";
 import SingleRecipe from "./SingleRecipe.jsx";
 import DeleteRecipe from "./DeleteRecipe.jsx";
+import CreateRecipe from "./CreateRecipe.jsx";
 
 export default function AllRecipes() {
 	const [recipes, setRecipes] = useState([]);
@@ -61,6 +62,9 @@ export default function AllRecipes() {
 							</>
 						)
 					})}
+					<br />
+					<div>Add a new recipe</div>
+					<div><CreateRecipe /></div>
 				</div>
 			</div>
 		</div>
