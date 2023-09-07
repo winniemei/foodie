@@ -13,10 +13,15 @@ export default function CreateRecipe() {
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
+        try {
         e.preventDefault();
-
         const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
-        console.log("API Data", APIData)
+        console.log("API Data", APIData);
+        navigate(0);
+        navigate('/recipes');
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (

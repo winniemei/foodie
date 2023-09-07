@@ -77,7 +77,7 @@ button:focus-visible {
 }
 
 #recipe-container {
-  background-color: lightgreen;
+  background-color: rgb(145, 223, 145);
   margin: 2rem;
   padding: 2rem;
   border-radius: 10px;
