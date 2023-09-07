@@ -20,6 +20,28 @@ export const fetchSingleRecipe = async (id) => {
     }
 }
 
+export const deleteRecipe = async (id) => {
+    try {
+        console.log('..entering delete recipe')
+        const response = await fetch(`${BASE_URL}/recipes/${id}`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        if (response.status === 204) {
+            // 204 No Content response indicates successful deletion with no JSON content.
+            console.log('Recipe deleted successfully');
+        } else {
+            // Handle other response statuses (e.g., error responses)
+            const responseText = await response.text();
+            console.error("Cannot delete recipe. Server response:", responseText);
+
+        }
+    } catch (error) {
+        console.error("Cannot delete recipe", error);
+    }
+}
 export const fetchAllIngredients = async () => {
     try {
         const response = await fetch(`${BASE_URL}/ingredients`);

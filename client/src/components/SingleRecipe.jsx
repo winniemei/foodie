@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchSingleRecipe } from "../fetching.js"
+import { fetchSingleRecipe } from "../fetching.js";
 
 export default function SingleRecipe({id}) {
 	const [oneRecipe, setOneRecipe] = useState([]);
