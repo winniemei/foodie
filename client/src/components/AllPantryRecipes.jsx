@@ -4,7 +4,6 @@ import { fetchAllRecipes, fetchRecipesIngredientsJunctionTable } from "../fetchi
 export default function AllPantryRecipes({ checkedPantryIngredients, ingredients }) {
 	const [recipes, setRecipes] = useState([]);
 	const [pantryRecipes, setPantryRecipes] = useState([]);
-	const [chosenRecipes, setChosenRecipes] = useState([]);
 	const checkedPantryIngredientsArray = [...checkedPantryIngredients]
 
 	// render all recipes    

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllRecipes } from "../fetching.js"
+import SingleRecipe from "./SingleRecipe.jsx";
 
 export default function AllRecipes() {
 	const [recipes, setRecipes] = useState([]);
@@ -44,8 +45,9 @@ export default function AllRecipes() {
 							<h3>Minutes: {recipe.cookingtime}</h3>
 
 							<iframe width="478" height="850" src={recipe.video}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-							
-							<h3></h3>
+							<br />
+							<button id="button-detail">See Details</button>
+							<SingleRecipe id={recipe.recipes_id}/>
 							</div>
 							</>
 						)

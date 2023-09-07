@@ -10,6 +10,16 @@ export const fetchAllRecipes = async () => {
     }
 }
 
+export const fetchSingleRecipe = async (id) => {
+    try {
+        const response = await fetch(`${BASE_URL}/recipes/${id}`);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Cannot fetch single recipe", error);
+    }
+}
+
 export const fetchAllIngredients = async () => {
     try {
         const response = await fetch(`${BASE_URL}/ingredients`);
