@@ -3,6 +3,7 @@ import { fetchAllRecipes } from "../fetching.js";
 import SingleRecipe from "./SingleRecipe.jsx";
 import DeleteRecipe from "./DeleteRecipe.jsx";
 import CreateRecipe from "./CreateRecipe.jsx";
+import UpdateRecipe from "./UpdateRecipe.jsx";
 
 export default function AllRecipes() {
 	const [recipes, setRecipes] = useState([]);
@@ -58,7 +59,8 @@ export default function AllRecipes() {
 							<br />
 							<button id="button-detail" onClick={handleSeeDetails}>See Details</button>
 							{seeDetails && <SingleRecipe id={recipe.recipes_id}/>}
-							<div><DeleteRecipe specificId={recipe.recipes_id} /></div>
+							<div><DeleteRecipe specificId={recipe.recipes_id} />
+							<UpdateRecipe specificId={recipe.recipes_id}></UpdateRecipe></div>
 							</div>
 							</>
 						)

@@ -59,6 +59,31 @@ export const createRecipe = async (cookingTime, description, is_vegetarian, port
     }
 }
 
+export const updateRecipe = async (cookingTime, description, is_vegetarian, portions, title, userId, video, id) => {
+    try {
+        console.log('...starting to update')
+        const response = await fetch(`${BASE_URL}/recipes/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                    cookingTime: cookingTime,
+                    description: description,
+                    is_vegetarian: is_vegetarian,
+                    portions: [portions],
+                    title: title,
+                    userId: userId,
+                    video: video
+            })
+        });
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Cannot update recipe", error);
+    }
+}
+
 export const fetchAllIngredients = async () => {
     try {
         const response = await fetch(`${BASE_URL}/ingredients`);
