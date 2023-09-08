@@ -8,12 +8,6 @@ import UpdateRecipe from "./UpdateRecipe.jsx";
 export default function AllRecipes() {
 	const [recipes, setRecipes] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
-	const [seeDetails, setSeeDetails] = useState(false);
-
-	// function to see pantry recipes
-    function handleSeeDetails() {
-        setSeeDetails(!seeDetails);
-    }
 
 	// render all recipes    
 	useEffect(() => {
@@ -57,8 +51,7 @@ export default function AllRecipes() {
 
 							<iframe width="478" height="850" src={recipe.video}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							<br />
-							<button id="button-detail" onClick={handleSeeDetails}>See Details</button>
-							{seeDetails && <SingleRecipe id={recipe.recipes_id}/>}
+							{<SingleRecipe id={recipe.recipes_id}/>}
 							<div><DeleteRecipe specificId={recipe.recipes_id} />
 							<UpdateRecipe specificId={recipe.recipes_id}></UpdateRecipe></div>
 							</div>
