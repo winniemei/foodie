@@ -14,6 +14,7 @@ export default function MainSection() {
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/logout" element={<LogOut />} />
 				<Route path="/recipes" element={<AllRecipes />} />
+				<Route path="/recipes/:id" element={<SingleRecipe />}/>
                 <Route path="/ingredients" element={<AllIngredients />} />
 			</Routes>
 		</div>
