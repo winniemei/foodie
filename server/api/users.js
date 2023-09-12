@@ -98,7 +98,7 @@ router.post('/login', async (req, res, next) => {
         console.log('req.body', req.body)
         const { username, password } = req.body
         const user = await getUserByUsername(username)
-        console.log(user)
+        console.log('user', user)
 
         const validPassword = await bcrypt.compare(password, user.password)
 
