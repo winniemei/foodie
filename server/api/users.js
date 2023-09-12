@@ -83,6 +83,8 @@ router.post('/register', async (req, res, next) => {
             signed: true
         })
 
+        console.log('token', token)
+
         delete user.password
         // console.log(res)
 
