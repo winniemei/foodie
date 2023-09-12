@@ -95,4 +95,15 @@ async function deleteUser(id) {
   }
 }
 
-module.exports = { createUser, getAllUsers, getUserById, updateUser, addUser, deleteUser }
+const getUserByUsername = async (username) => {
+  const {
+    rows: [user],
+  } = await client.query(
+    `SELECT * FROM users
+    WHERE users.username = $1`,
+    [username]
+  )
+  return user;
+}
+
+module.exports = { createUser, getAllUsers, getUserById, updateUser, addUser, deleteUser, getUserByUsername }
