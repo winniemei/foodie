@@ -93,11 +93,11 @@ router.post('/register', async (req, res, next) => {
     } catch(error) {
         next(error)
     }
-})
+});
 
 router.post('/login', async (req, res, next) => {
     try {
-        console.log(req.body)
+        console.log('req.body', req.body)
         const { username, password } = req.body
         const user = await getUserByUsername(username)
         console.log(user)

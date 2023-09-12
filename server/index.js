@@ -19,7 +19,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 // init cookie-parser
-app.use(cookieParser(COOKIE_SECRET))
+app.use(cookieParser(COOKIE_SECRET));
+
+app.get('/test', authRequired, (req, res, next) => {
+    res.send('You are authorized')
+  });  
 
 // init cors
 const cors = require('cors');
@@ -35,5 +39,3 @@ app.use('/api', require('./api'));
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
-
-module.exports = { authRequired }
