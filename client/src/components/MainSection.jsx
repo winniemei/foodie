@@ -15,7 +15,7 @@ export default function MainSection() {
 			<Routes>
 				<Route path="/" element={<Home token={token} />} />
 				<Route path="/login" element={<LogIn setToken={setToken} token={token} />} />
-				<Route path="/logout" element={<LogOut />} />
+				<Route path="/logout" element={<LogOut setToken={setToken} token={token} />} />
 				<Route path="/recipes" element={<AllRecipes token={token} />} />
 				<Route path="/recipes/:id" element={<SingleRecipe token={token} />} />
 				<Route path="/ingredients" element={<AllIngredients token={token} />} />
