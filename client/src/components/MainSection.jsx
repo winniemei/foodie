@@ -7,6 +7,7 @@ import LogOut from "./LogOut";
 import AllIngredients from "./Ingredients";
 import SingleRecipe from "./SingleRecipe";
 import Register from "./Register";
+import CreateRecipe from "./CreateRecipe";
 
 export default function MainSection() {
 	const [token, setToken] = useState(null);
@@ -15,7 +16,7 @@ export default function MainSection() {
 		<div id="main-section">
 			<Routes>
 				<Route path="/" element={<Home token={token} userId={userId} />} />
-				<Route path="/login" element={<LogIn setToken={setToken} token={token} userId={userId} setUserid={setUserId} />} />
+				<Route path="/login" element={<LogIn setToken={setToken} token={token} userId={userId} setUserId={setUserId} />} />
 				<Route path="/logout" element={<LogOut setToken={setToken} token={token} />} />
 				<Route path="/recipes" element={<AllRecipes token={token} userId={userId} />} />
 				<Route path="/recipes/:id" element={<SingleRecipe token={token} userId={userId} />} />

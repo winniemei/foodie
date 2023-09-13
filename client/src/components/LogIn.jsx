@@ -3,7 +3,7 @@ import { login, register } from "../fetching";
 import { useNavigate } from "react-router-dom";
 import Register from "./Register";
 
-export default function LogIn({ setToken }) {
+export default function LogIn({ setToken, setUserId, token, userId }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -17,6 +17,7 @@ export default function LogIn({ setToken }) {
         console.log('RESPONSE', response.user.users_id);
         setToken(response.token);
         setUserId(response.user.users_id);
+        console.log('userId', userId);
         setUsername('');
         setPassword('');
         navigate('/recipes')

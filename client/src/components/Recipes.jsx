@@ -5,7 +5,7 @@ import DeleteRecipe from "./DeleteRecipe.jsx";
 import CreateRecipe from "./CreateRecipe.jsx";
 import UpdateRecipe from "./UpdateRecipe.jsx";
 
-export default function AllRecipes({ token }) {
+export default function AllRecipes({ token, userId }) {
 	const [recipes, setRecipes] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
 
@@ -62,7 +62,7 @@ export default function AllRecipes({ token }) {
 						)
 					})}
 					<br />
-					<div>{token && <CreateRecipe />}</div>
+					<div>{token && <CreateRecipe userId={userId} />}</div>
 				</div>
 			</div>
 		</div>
