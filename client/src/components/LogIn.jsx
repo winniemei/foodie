@@ -32,7 +32,7 @@ export default function LogIn({ setToken }) {
             <div id="log-in-container">
                 <h1>Log In</h1>
                 <form onSubmit={handleSubmit}>
-                    <input className="inputField" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br/ >
+                    <input id="username" className="inputField" autoFocus placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br/ >
                     <input className="inputField" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
                     <button type="submit">SIGN IN</button>
                     <button id="button-detail" onClick={handleRegister}>REGISTER</button>
