@@ -113,6 +113,7 @@ router.post('/login', async (req, res, next) => {
                 signed: true
             })
 
+            console.log('token', token)
             delete user.password
             res.send({user})
         }

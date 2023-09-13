@@ -10,10 +10,12 @@ export default function LogIn({ setToken }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(username, password);
-        const logResponse = await login();
-        console.log('waited the log in')
+        const response = await login(username, password);
+        console.log('response.headers', response.data)
+
+        const headers = response.headers;
+        console.log('Response headers', headers)
         // setToken(register.data.token);
-        console.log('login', logResponse);
         setUsername('');
         setPassword('');
         navigate('/recipes')
