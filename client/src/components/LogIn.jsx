@@ -1,9 +1,32 @@
-export default function LogIn() {
-    return(
+import { useState } from "react";
+import { login } from "../fetching";
+import { useNavigate } from "react-router-dom";
+
+export default function LogIn({ setToken }) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(username, password);
+        const register = await login(username, password);
+        // setToken(register.data.token);
+        console.log('register', register);
+        setUsername('');
+        setPassword('');
+        navigate('/posts');
+    }
+    return (
         <>
-        <div id="log-in-container">
-        <h1>yo this is the log in form</h1>
-        </div>
+            <div id="log-in-container">
+                <h1>Log In</h1>
+                <form onSubmit={handleSubmit}>
+                    <input placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br/ >
+                    <input placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </>
     )
 }
