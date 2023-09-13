@@ -18,7 +18,7 @@ describe('<LogIn />', () => {
         <LogIn />
       </BrowserRouter>)
 
-      cy.focused().should('have.id', 'username')
+      cy.focused().should('have.id', 'username');
   });
 
   it('checks that there is an h1 with text login', () => {
@@ -28,7 +28,7 @@ describe('<LogIn />', () => {
         <LogIn />
       </BrowserRouter>)
 
-      cy.get('h1').contains('Log In')
+      cy.get('h1').contains('Log In');
   });
 
   it('checks that there is an h1 with text login', () => {
@@ -38,7 +38,7 @@ describe('<LogIn />', () => {
         <LogIn />
       </BrowserRouter>)
 
-      cy.get('h1').contains('Log In')
+      cy.get('h1').contains('Log In');
   });
 
 })
