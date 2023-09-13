@@ -86,9 +86,9 @@ router.post('/register', async (req, res, next) => {
         console.log('token', token)
 
         delete user.password
-        res.send({user})
+        res.send({ user })
 
-    } catch(error) {
+    } catch (error) {
         next(error)
     }
 });
@@ -115,10 +115,10 @@ router.post('/login', async (req, res, next) => {
 
             console.log('token', token)
             delete user.password
-            res.send({user})
+            res.send({ token, user })
         }
 
-    } catch(error) {
+    } catch (error) {
         next(error)
     }
 });
@@ -130,11 +130,11 @@ router.post('/logout', async (req, res, next) => {
             httpOnly: true,
             signed: true
         })
-        res.send({ 
+        res.send({
             loggedIn: false,
             message: 'Logged Out'
         })
-    } catch(error) {
+    } catch (error) {
         next(error)
     }
 });
