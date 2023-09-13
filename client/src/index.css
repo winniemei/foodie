@@ -20,6 +20,7 @@ a {
   color: rgb(64, 73, 143);
   text-decoration: inherit;
 }
+
 a:hover {
   color: darkcyan;
 }
@@ -48,9 +49,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -61,15 +64,17 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
 }
 
-#main-section{
+#main-section {
   background-color: lightblue;
   background-size: 50%;
   margin: 2rem;
@@ -167,4 +172,8 @@ button:focus-visible {
   background-color: lightblue;
   padding: .3em;
   border-radius: 10px;
+}
+
+#food-coma {
+  border-radius: 20px;
 }
