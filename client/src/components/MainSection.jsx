@@ -10,16 +10,17 @@ import Register from "./Register";
 
 export default function MainSection() {
 	const [token, setToken] = useState(null);
+	const [userId, setUserId] = useState(null);
 	return (
 		<div id="main-section">
 			<Routes>
-				<Route path="/" element={<Home token={token} />} />
-				<Route path="/login" element={<LogIn setToken={setToken} token={token} />} />
+				<Route path="/" element={<Home token={token} userId={userId} />} />
+				<Route path="/login" element={<LogIn setToken={setToken} token={token} userId={userId} setUserid={setUserId} />} />
 				<Route path="/logout" element={<LogOut setToken={setToken} token={token} />} />
-				<Route path="/recipes" element={<AllRecipes token={token} />} />
-				<Route path="/recipes/:id" element={<SingleRecipe token={token} />} />
-				<Route path="/ingredients" element={<AllIngredients token={token} />} />
-				<Route path="/register" element={<Register setToken={setToken} token={token} />} />
+				<Route path="/recipes" element={<AllRecipes token={token} userId={userId} />} />
+				<Route path="/recipes/:id" element={<SingleRecipe token={token} userId={userId} />} />
+				<Route path="/ingredients" element={<AllIngredients token={token} userId={userId} />} />
+				<Route path="/register" element={<Register setToken={setToken} token={token} setUserId={setUserId} userId={userId} />} />
 			</Routes>
 		</div>
 	);

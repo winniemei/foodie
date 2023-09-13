@@ -3,13 +3,13 @@ import { createRecipe } from "../fetching";
 import { useNavigate } from "react-router-dom";
 import { Input, Select, MenuItem } from "@mui/material";
 
-export default function CreateRecipe() {
+export default function CreateRecipe({ userId }) {
     const [cookingTime, setCookingTime] = useState("");
     const [description, setDescription] = useState("")
     const [is_vegetarian, setIsVegetarian] = useState(false);
     const [portions, setPortions] = useState("")
     const [title, setTitle] = useState(null);
-    const [userId, setUserId] = useState(null);
+    // const [userId, setUserId] = useState(null);
     const [video, setVideo] = useState(null);
     const navigate = useNavigate();
 
@@ -18,8 +18,8 @@ export default function CreateRecipe() {
             e.preventDefault();
             const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
             console.log("API Data", APIData);
-            navigate(0);
-            navigate('/recipes');
+            navigate('/');
+            navigate('/recipes')
         } catch (error) {
             console.error(error);
         }
@@ -84,14 +84,6 @@ export default function CreateRecipe() {
                     name="video"
                     placeholder="video"
                     onChange={(e) => setVideo(e.target.value)}
-                /><br />
-                <input
-                    className="inputField"
-                    value={userId}
-                    type="text"
-                    name="userId"
-                    placeholder="userId"
-                    onChange={(e) => setUserId(e.target.value)}
                 /><br />
                 <br />
                 <button>Submit</button>

@@ -17,7 +17,7 @@ export default function Register({ setToken }) {
         console.log(response);
         setUsername('');
         setPassword('');
-        navigate('/recipes');
+        navigate('/login');
     }
 
     return (

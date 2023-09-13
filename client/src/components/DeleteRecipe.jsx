@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { deleteRecipe } from "../fetching";
 
 
-export default function DeleteRecipe({specificId}) {
+export default function DeleteRecipe({ specificId }) {
   const navigate = useNavigate();
 
   async function handleDelete() {
     try {
       const response = await deleteRecipe(specificId);
-      navigate(0);
-      navigate("/recipes")
+      navigate("/");
+      // navigate("/recipes");
     }
     catch (error) {
       console.error(error);
@@ -24,4 +24,4 @@ export default function DeleteRecipe({specificId}) {
       </div>
     </div>
   );
-  }
+}

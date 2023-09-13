@@ -13,8 +13,10 @@ export default function LogIn({ setToken }) {
         e.preventDefault();
         console.log(username, password);
         const response = await login(username, password);
-        console.log('RESPONSE', response.token)
+        console.log('RESPONSE', response.token);
+        console.log('RESPONSE', response.user.users_id);
         setToken(response.token);
+        setUserId(response.user.users_id);
         setUsername('');
         setPassword('');
         navigate('/recipes')
