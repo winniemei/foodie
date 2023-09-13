@@ -62,7 +62,7 @@ export default function AllRecipes({ token }) {
 						)
 					})}
 					<br />
-					<div><CreateRecipe /></div>
+					<div>{token && <CreateRecipe />}</div>
 				</div>
 			</div>
 		</div>
