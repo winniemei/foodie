@@ -112,7 +112,7 @@ button:focus-visible {
   background-size: 100%;
   border-radius: 10px;
   width: 90%;
-  height: 20vw;
+  height: 40vw;
   justify-content: center;
   display: inline-block;
 }
