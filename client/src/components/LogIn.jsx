@@ -6,23 +6,15 @@ import Register from "./Register";
 export default function LogIn({ setToken }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [registering, setRegistering] = useState(false);
     const navigate = useNavigate();
 
-	// function to see one recipe
-    function handleRegister() {
-        setRegistering(!registering);
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(username, password);
         const response = await login(username, password);
-        // console.log('response.headers', response.data)
-
-        const headers = response.headers;
-        console.log('Response headers', headers)
-        // setToken(register.data.token);
+        console.log('RESPONSE', response.token)
+        setToken(response.token);
         setUsername('');
         setPassword('');
         navigate('/recipes')
@@ -32,12 +24,9 @@ export default function LogIn({ setToken }) {
             <div id="log-in-container">
                 <h1>Log In</h1>
                 <form onSubmit={handleSubmit}>
-                    <input id="username" className="inputField" autoFocus placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br/ >
+                    <input id="username" className="inputField" autoFocus placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br />
                     <input className="inputField" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
                     <button type="submit">SIGN IN</button>
-                    <button id="button-detail" onClick={handleRegister}>REGISTER</button>
-                    {registering && <Register />}
-                    
                 </form>
             </div>
         </>

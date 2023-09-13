@@ -13,23 +13,23 @@ export default function Register({ setToken }) {
         console.log(username, password);
         console.log('submitting register')
         const response = await register(username, password);
-        // setToken(register.data.token);
+        setToken(response.token);
         console.log(response);
         setUsername('');
         setPassword('');
-        console.log('whoaaaa')
-        // navigate('/recipes');
+        navigate('/recipes');
     }
 
-    return(
+    return (
         <>
-            <h1>Register</h1>
-
-            <form onSubmit={handleSubmit}>
-                <input placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br />
-                <input placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-                <button type="submit">Submit</button>
-            </form>
+            <div id="log-in-container">
+                <h1>Register</h1>
+                <form onSubmit={handleSubmit}>
+                    <input className="inputField" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+                    <input className="inputField" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </>
     );
 }

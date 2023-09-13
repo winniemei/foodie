@@ -5,7 +5,7 @@ import DeleteRecipe from "./DeleteRecipe.jsx";
 import CreateRecipe from "./CreateRecipe.jsx";
 import UpdateRecipe from "./UpdateRecipe.jsx";
 
-export default function AllRecipes() {
+export default function AllRecipes({ token }) {
 	const [recipes, setRecipes] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
 
@@ -45,17 +45,19 @@ export default function AllRecipes() {
 					{recipesToDisplay.map((recipe) => {
 						return (
 							<>
-								<div id="each-recipe">
-									<h3>{recipe.title}</h3>
-									<h3>Ingredients: {recipe.portions}</h3>
-									<h3>Minutes: {recipe.cookingtime}</h3>
+								{token &&
+									<div id="each-recipe">
+										<h3>{recipe.title}</h3>
+										<h3>Ingredients: {recipe.portions}</h3>
+										<h3>Minutes: {recipe.cookingtime}</h3>
 
-									<iframe width="478" height="850" src={recipe.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-									<br />
-									{<SingleRecipe id={recipe.recipes_id} />}
-									<div><DeleteRecipe specificId={recipe.recipes_id} />
-										<UpdateRecipe specificId={recipe.recipes_id}></UpdateRecipe></div>
-								</div>
+										<iframe width="478" height="850" src={recipe.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+										<br />
+										{<SingleRecipe id={recipe.recipes_id} />}
+										<div><DeleteRecipe specificId={recipe.recipes_id} />
+											<UpdateRecipe specificId={recipe.recipes_id}></UpdateRecipe></div>
+									</div>
+								}
 							</>
 						)
 					})}

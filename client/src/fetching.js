@@ -43,13 +43,13 @@ export const createRecipe = async (cookingTime, description, is_vegetarian, port
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                    cookingTime: cookingTime,
-                    description: description,
-                    is_vegetarian: is_vegetarian,
-                    portions: [portions],
-                    title: title,
-                    userId: userId,
-                    video: video
+                cookingTime: cookingTime,
+                description: description,
+                is_vegetarian: is_vegetarian,
+                portions: [portions],
+                title: title,
+                userId: userId,
+                video: video
             })
         });
         const result = await response.json();
@@ -68,13 +68,13 @@ export const updateRecipe = async (cookingTime, description, is_vegetarian, port
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                    cookingTime: cookingTime,
-                    description: description,
-                    is_vegetarian: is_vegetarian,
-                    portions: [portions],
-                    title: title,
-                    userId: userId,
-                    video: video
+                cookingTime: cookingTime,
+                description: description,
+                is_vegetarian: is_vegetarian,
+                portions: [portions],
+                title: title,
+                userId: userId,
+                video: video
             })
         });
         const result = await response.json();
@@ -113,8 +113,8 @@ export const login = async (username, password) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                    username: username,
-                    password: password
+                username: username,
+                password: password
             })
         });
         const result = await response.json();
@@ -134,12 +134,33 @@ export const register = async (username, password) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                    username: username,
-                    password: password
+                username: username,
+                password: password
             })
         });
         const result = await response.json();
         console.log(result)
+        return result
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const logout = async (username, password) => {
+
+    try {
+        const response = await fetch(`${BASE_URL}/users/login`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
+        const result = await response.json();
+        console.log(result);
         return result
     } catch (err) {
         console.error(err);
