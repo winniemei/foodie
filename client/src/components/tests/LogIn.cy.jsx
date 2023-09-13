@@ -31,16 +31,6 @@ describe('<LogIn />', () => {
     cy.get('h1').contains('Log In');
   });
 
-  it('checks that there is an h1 with text login', () => {
-    // see: https://on.cypress.io/mounting-react
-    cy.mount(
-      <BrowserRouter>
-        <LogIn />
-      </BrowserRouter>)
-
-    cy.get('h1').contains('Log In');
-  });
-
   it('username input should accept typing', () => {
     // see: https://on.cypress.io/mounting-react
     cy.mount(

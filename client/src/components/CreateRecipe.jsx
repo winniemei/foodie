@@ -15,25 +15,26 @@ export default function CreateRecipe() {
 
     async function handleSubmit(e) {
         try {
-        e.preventDefault();
-        const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
-        console.log("API Data", APIData);
-        navigate(0);
-        navigate('/recipes');
+            e.preventDefault();
+            const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
+            console.log("API Data", APIData);
+            navigate(0);
+            navigate('/recipes');
         } catch (error) {
-            console.error(error);       
+            console.error(error);
         }
     }
 
     const handleChange = (e) => {
-		setIsVegetarian(e.target.value);
-	};
+        setIsVegetarian(e.target.value);
+    };
 
     return (
         <div className="formGroup">
             <h2>Add a new recipe</h2>
             <form onSubmit={handleSubmit}>
                 <input
+                    id="title"
                     className="inputField"
                     value={title}
                     type="text"
@@ -74,7 +75,7 @@ export default function CreateRecipe() {
                     onChange={handleChange}
                 >
                     <MenuItem value={false}>No</MenuItem>
-					<MenuItem value={true}>Yes</MenuItem>
+                    <MenuItem value={true}>Yes</MenuItem>
                 </Select><br />
                 <input
                     className="inputField"
