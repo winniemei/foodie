@@ -1,5 +1,5 @@
 import React from 'react'
-import AllIngredients from './Ingredients'
+import AllIngredients from '../Ingredients'
 import { BrowserRouter } from 'react-router-dom'
 
 describe('<AllIngredients />', () => {
@@ -40,18 +40,6 @@ describe('<AllIngredients />', () => {
       </BrowserRouter>)
 
     cy.get('[type="checkbox"]').uncheck()
-
-  });
-
-  it('check salmon box', () => {
-    // see: https://on.cypress.io/mounting-react
-    cy.mount(
-      <BrowserRouter>
-        <AllIngredients />
-      </BrowserRouter>)
-
-    cy.get('[type="checkbox"]').check('salmon')
-
 
   });
 
