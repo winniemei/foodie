@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AllRecipes from "./Recipes";
 import Home from "./Home";
 import LogIn from "./LogIn";
@@ -12,8 +12,10 @@ import CreateRecipe from "./CreateRecipe";
 export default function MainSection() {
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
-	localStorage.setItem("token", token);
-	localStorage.setItem("userId", userId);
+	useEffect(() => {
+		setToken(window.localStorage.getItem("token"));
+		setUserId(window.localStorage.getItem("userId"));
+	}, [])
 	return (
 		<div id="main-section">
 			<Routes>

@@ -14,9 +14,9 @@ export default function LogIn({ setToken, setUserId, token, userId }) {
         console.log(username, password);
         const response = await login(username, password);
         console.log('RESPONSE', response.token);
-        console.log('RESPONSE', response.user.users_id);
+        console.log('RESPONSE USER ID', response.user.users_id);
         setToken(response.token);
-        localStorage.setItem("token", token);
+        localStorage.setItem("token", response.token);
         setUserId(response.user.users_id);
         localStorage.setItem("userId", response.user.users_id);
         console.log('userId', userId);

@@ -8,7 +8,11 @@ import UpdateRecipe from "./UpdateRecipe.jsx";
 export default function AllRecipes({ token, userId }) {
 	const [recipes, setRecipes] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
+	// const [userId, setUserId] = useState(null);
 
+	// if (localStorage.getItem("userId")) {
+	// 	setUserId(localStorage.getItem("userId"));
+	// }
 	// render all recipes    
 	useEffect(() => {
 		async function getAllRecipes() {
@@ -42,7 +46,7 @@ export default function AllRecipes({ token, userId }) {
 			<div>
 				<div id="recipe-container">
 					<h1>All Recipes</h1>
-					{localStorage.getItem("token") && recipesToDisplay.map((recipe) => {
+					{token && recipesToDisplay.map((recipe) => {
 						return (
 							<>
 								{
@@ -57,8 +61,9 @@ export default function AllRecipes({ token, userId }) {
 										{<SingleRecipe id={recipe.recipes_id} />}
 										{console.log('LOCAL STORAGE USER ID', localStorage.getItem("userId"))}
 										{console.log('RECIPE USER ID', recipe.userid)}
-										<div>{(Number(localStorage.getItem("userId")) === recipe.userid) && <DeleteRecipe specificId={recipe.recipes_id} />}
-											{(Number(localStorage.getItem("userId")) === recipe.userid) && <UpdateRecipe specificId={recipe.recipes_id} />}</div>
+										{console.log('RECIPE', recipe)}
+										<div>{(Number(userId) === recipe.userid) && <DeleteRecipe specificId={recipe.recipes_id} />}
+											{(Number(userId) === recipe.userid) && <UpdateRecipe specificId={recipe.recipes_id} />}</div>
 									</div>
 								}
 							</>
