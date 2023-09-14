@@ -44,6 +44,7 @@ export default function UpdateRecipe({ specificId }) {
                     <h2>UPDATE YOUR RECIPE</h2>
                     <form onSubmit={handleSubmit}>
                         <input
+                            id="title"
                             className="inputField"
                             value={title}
                             type="text"
@@ -58,7 +59,7 @@ export default function UpdateRecipe({ specificId }) {
                             name="cookingTime"
                             onChange={(e) => setCookingTime(e.target.value)}
                         /><br />
-                        <input
+                        <textarea cols={30} rows={10}
                             className="inputField"
                             value={portions}
                             type="text"
@@ -66,7 +67,7 @@ export default function UpdateRecipe({ specificId }) {
                             placeholder="ingredients needed"
                             onChange={(e) => setPortions(e.target.value)}
                         /><br />
-                        <input
+                        <textarea cols={30} rows={10}
                             className="inputField"
                             value={description}
                             type="text"
@@ -93,14 +94,6 @@ export default function UpdateRecipe({ specificId }) {
                             name="video"
                             placeholder="video"
                             onChange={(e) => setVideo(e.target.value)}
-                        /><br />
-                        <input
-                            className="inputField"
-                            value={userId}
-                            type="text"
-                            name="userId"
-                            placeholder="userId"
-                            onChange={(e) => setUserId(e.target.value)}
                         /><br />
                         <br />
                         <button>Submit</button>

@@ -45,7 +45,7 @@ export default function AllRecipes({ token, userId }) {
 					{recipesToDisplay.map((recipe) => {
 						return (
 							<>
-								{token &&
+								{localStorage.getItem("token") &&
 									<div id="each-recipe">
 										<h3>{recipe.title}</h3>
 										<h3>Ingredients: </h3>
@@ -55,7 +55,7 @@ export default function AllRecipes({ token, userId }) {
 										<iframe width="478" height="850" src={recipe.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 										<br />
 										{<SingleRecipe id={recipe.recipes_id} />}
-										<div>{(userId === recipe.userid) && <DeleteRecipe specificId={recipe.recipes_id} />}
+										<div>{localStorage.getItem("token") && (userId === recipe.userid) && <DeleteRecipe specificId={recipe.recipes_id} />}
 											{(userId === recipe.userid) && <UpdateRecipe specificId={recipe.recipes_id} />}</div>
 									</div>
 								}
@@ -63,7 +63,7 @@ export default function AllRecipes({ token, userId }) {
 						)
 					})}
 					<br />
-					<div>{token && <CreateRecipe userId={userId} />}</div>
+					<div>{localStorage.getItem("token") && <CreateRecipe userId={userId} />}</div>
 				</div>
 			</div>
 		</div>

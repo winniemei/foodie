@@ -9,7 +9,7 @@ export default function DeleteRecipe({ specificId }) {
   async function handleDelete() {
     try {
       const response = await deleteRecipe(specificId);
-      navigate("/");
+      navigate(0);
       // navigate("/recipes");
     }
     catch (error) {

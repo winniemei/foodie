@@ -18,7 +18,7 @@ export default function CreateRecipe({ userId }) {
             e.preventDefault();
             const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
             console.log("API Data", APIData);
-            navigate('/');
+            navigate(0);
             // navigate('/recipes')
         } catch (error) {
             console.error(error);

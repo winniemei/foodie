@@ -12,6 +12,7 @@ import CreateRecipe from "./CreateRecipe";
 export default function MainSection() {
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
+	localStorage.setItem("token", token);
 	return (
 		<div id="main-section">
 			<Routes>
