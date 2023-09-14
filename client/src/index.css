@@ -177,3 +177,12 @@ button:focus-visible {
 #food-coma {
   border-radius: 20px;
 }
+
+textarea {
+  height: 214px;
+  width: 238px;
+}
+
+#instructions {
+  white-space: pre-wrap;
+}

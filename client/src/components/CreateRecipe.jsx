@@ -19,7 +19,7 @@ export default function CreateRecipe({ userId }) {
             const APIData = await createRecipe(cookingTime, description, is_vegetarian, portions, title, userId, video);
             console.log("API Data", APIData);
             navigate('/');
-            navigate('/recipes')
+            // navigate('/recipes')
         } catch (error) {
             console.error(error);
         }
@@ -57,7 +57,7 @@ export default function CreateRecipe({ userId }) {
                     placeholder="ingredients needed"
                     onChange={(e) => setPortions(e.target.value)}
                 /><br />
-                <input
+                <textarea cols={30} rows={10}
                     className="inputField"
                     value={description}
                     type="text"
