@@ -63,7 +63,7 @@ export default function AllRecipes({ token, userId }) {
 										{console.log('RECIPE USER ID', recipe.userid)}
 										{console.log('RECIPE', recipe)}
 										<div>{(Number(userId) === recipe.userid) && <DeleteRecipe specificId={recipe.recipes_id} />}
-											{(Number(userId) === recipe.userid) && <UpdateRecipe specificId={recipe.recipes_id} />}</div>
+											{(Number(userId) === recipe.userid) && <UpdateRecipe specificId={recipe.recipes_id} userId={userId} />}</div>
 									</div>
 								}
 							</>

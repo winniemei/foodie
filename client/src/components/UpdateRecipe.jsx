@@ -3,14 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { Input, Select, MenuItem } from "@mui/material";
 import { updateRecipe } from "../fetching";
 
-export default function UpdateRecipe({ specificId }) {
+export default function UpdateRecipe({ specificId, userId }) {
     const [isOpen, setIsOpen] = useState(false);
     const [cookingTime, setCookingTime] = useState("");
     const [description, setDescription] = useState("")
     const [is_vegetarian, setIsVegetarian] = useState(false);
     const [portions, setPortions] = useState("")
     const [title, setTitle] = useState(null);
-    const [userId, setUserId] = useState(null);
     const [video, setVideo] = useState(null);
     const navigate = useNavigate();
 
