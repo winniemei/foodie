@@ -27,12 +27,16 @@ export default function LogIn({ setToken, setUserId, token, userId }) {
     return (
         <>
             <div id="log-in-container">
-                <h1>Log In</h1>
-                <form onSubmit={handleSubmit}>
-                    <input id="username" className="inputField" autoFocus placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br />
-                    <input className="inputField" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-                    <button type="submit">SIGN IN</button>
-                </form>
+
+                {token && <h1>You're already logged in!</h1>}
+                {!token && <div>
+                    <h1>Log in</h1>
+                    <form onSubmit={handleSubmit}>
+                        <input id="username" className="inputField" autoFocus placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} /><br />
+                        <input className="inputField" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br />
+                        <button type="submit">SIGN IN</button>
+                    </form>
+                </div>}
             </div>
         </>
     )
