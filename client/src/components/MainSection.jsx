@@ -13,6 +13,7 @@ export default function MainSection() {
 	const [token, setToken] = useState(null);
 	const [userId, setUserId] = useState(null);
 	localStorage.setItem("token", token);
+	localStorage.setItem("userId", userId);
 	return (
 		<div id="main-section">
 			<Routes>

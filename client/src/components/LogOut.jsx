@@ -8,6 +8,7 @@ export default function LogOut({ token, setToken }) {
     useEffect(() => {
         logout();
         localStorage.removeItem("token");
+        localStorage.removeItem("userId");
         setToken(null);
     })
 

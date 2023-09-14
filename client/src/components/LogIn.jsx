@@ -18,6 +18,7 @@ export default function LogIn({ setToken, setUserId, token, userId }) {
         setToken(response.token);
         localStorage.setItem("token", token);
         setUserId(response.user.users_id);
+        localStorage.setItem("userId", response.user.users_id);
         console.log('userId', userId);
         setUsername('');
         setPassword('');
