@@ -49,7 +49,7 @@ export default function CreateRecipe({ userId }) {
                     name="cookingTime"
                     onChange={(e) => setCookingTime(e.target.value)}
                 /><br />
-                <input
+                <textarea cols={30} rows={10}
                     className="inputField"
                     value={portions}
                     type="text"

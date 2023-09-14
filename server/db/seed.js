@@ -7,9 +7,9 @@ const { createIngredient } = require('./helpers/ingredients');
 const { createRecipesIngredient } = require('./helpers/recipes_ingredients');
 const { createUsersIngredient } = require('./helpers/users_ingredients');
 
-const { recipes, users, ingredients, recipesIngredients, usersIngredients} = require('./seedData');
+const { recipes, users, ingredients, recipesIngredients, usersIngredients } = require('./seedData');
 
-const dropTables = async() => {
+const dropTables = async () => {
     try {
         console.log("Starting to drop tables");
         await client.query(`
@@ -26,7 +26,7 @@ const dropTables = async() => {
 }
 
 const createTables = async () => {
-    console.log("Building tables...") 
+    console.log("Building tables...")
     await client.query(`
         CREATE TABLE users (
             users_id SERIAL PRIMARY KEY,
@@ -36,7 +36,7 @@ const createTables = async () => {
         CREATE TABLE recipes (
             recipes_id SERIAL PRIMARY KEY,
             title varchar(255) UNIQUE NOT NULL,
-            portions TEXT [],
+            portions varchar(1000),
             cookingTime INTEGER NOT NULL,
             is_vegetarian BOOLEAN,
             description varchar(1000) NOT NULL,
@@ -60,12 +60,12 @@ const createTables = async () => {
             ingredientsId INTEGER REFERENCES ingredients(ingredients_id) NOT NULL
         );
         `)
-        console.log('Tables built!');
+    console.log('Tables built!');
 }
 
 // Insert mock data from seedData.js
 // Create users
-const createInitialUsers = async() => {
+const createInitialUsers = async () => {
     try {
         for (const user of users) {
             await createUser(user);
@@ -79,7 +79,7 @@ const createInitialUsers = async() => {
 }
 
 // Create recipes
-const createInitialRecipes = async() => {
+const createInitialRecipes = async () => {
     try {
         for (const recipe of recipes) {
             await createRecipe(recipe);
@@ -93,7 +93,7 @@ const createInitialRecipes = async() => {
 }
 
 // Create ingredients
-const createInitialIngredients = async() => {
+const createInitialIngredients = async () => {
     try {
         for (const ingredient of ingredients) {
             await createIngredient(ingredient);
@@ -106,7 +106,7 @@ const createInitialIngredients = async() => {
 }
 
 // Create recipes_ingredients
-const createInitialRecipesIngredients = async() => {
+const createInitialRecipesIngredients = async () => {
     try {
         for (const recipesIngredient of recipesIngredients) {
             await createRecipesIngredient(recipesIngredient);
@@ -119,7 +119,7 @@ const createInitialRecipesIngredients = async() => {
 }
 
 // Create users_ingredients
-const createInitialUsersIngredients = async() => {
+const createInitialUsersIngredients = async () => {
     try {
         for (const usersIngredient of usersIngredients) {
             await createUsersIngredient(usersIngredient);

@@ -47,11 +47,12 @@ export default function AllIngredients() {
             } else {
                 addToPantryIngredients(id);
             }
-            setCheckboxes(previousCheckboxes => ({
-                ...previousCheckboxes,
-                [id]: !isChecked,
-              }))
-            console.log('changed value of checkbox'+ id)
+            setCheckboxes(previousCheckboxes => (
+                {
+                    ...previousCheckboxes,
+                    [id]: !isChecked,
+                }))
+            console.log('changed value of checkbox' + id)
             console.log('checkboxes', checkboxes)
             console.log('checked pantry ingredients', checkedPantryIngredients)
         } catch (error) {
@@ -93,12 +94,12 @@ export default function AllIngredients() {
                         )
                     })}
                     <div id="pantry">
-                    <h2>My Pantry</h2>
-                    <MyPantry checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/>
+                        <h2>My Pantry</h2>
+                        <MyPantry checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients} />
                     </div>
                     <button id="recipe-button" onClick={handleSeeRecipes}>See Recipes</button>
                     <div id="pantry-recipes">
-                        {seeRecipes && <AllPantryRecipes checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients}/>}
+                        {seeRecipes && <AllPantryRecipes checkedPantryIngredients={checkedPantryIngredients} ingredients={ingredients} />}
                     </div>
                 </div>
             </div>

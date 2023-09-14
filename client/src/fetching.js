@@ -46,7 +46,7 @@ export const createRecipe = async (cookingTime, description, is_vegetarian, port
                 cookingTime: cookingTime,
                 description: description,
                 is_vegetarian: is_vegetarian,
-                portions: [portions],
+                portions: portions,
                 title: title,
                 userId: userId,
                 video: video

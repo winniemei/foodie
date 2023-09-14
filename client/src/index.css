@@ -186,3 +186,7 @@ textarea {
 #instructions {
   white-space: pre-wrap;
 }
+
+#ingredientList {
+  white-space: pre-wrap;
+}
