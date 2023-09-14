@@ -8,12 +8,7 @@ import UpdateRecipe from "./UpdateRecipe.jsx";
 export default function AllRecipes({ token, userId }) {
 	const [recipes, setRecipes] = useState([]);
 	const [searchParam, setSearchParam] = useState("");
-	// const [userId, setUserId] = useState(null);
 
-	// if (localStorage.getItem("userId")) {
-	// 	setUserId(localStorage.getItem("userId"));
-	// }
-	// render all recipes    
 	useEffect(() => {
 		async function getAllRecipes() {
 			const response = await fetchAllRecipes();
