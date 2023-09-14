@@ -54,8 +54,8 @@ export default function AllRecipes({ token, userId }) {
 										<iframe width="478" height="850" src={recipe.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 										<br />
 										{<SingleRecipe id={recipe.recipes_id} />}
-										<div><DeleteRecipe specificId={recipe.recipes_id} />
-											<UpdateRecipe specificId={recipe.recipes_id}></UpdateRecipe></div>
+										<div>{(userId === recipe.userid) && <DeleteRecipe specificId={recipe.recipes_id} />}
+											{(userId === recipe.userid) && <UpdateRecipe specificId={recipe.recipes_id} />}</div>
 									</div>
 								}
 							</>
